@@ -35,23 +35,15 @@ export default function Login() {
         if (data.tag === true) {
           localStorage.setItem("recruiter_token", data.token);
         }
-        else if (login_userType === "recruiter") {
-          let obj = {
-            recruiter_email: email,
-            recruiter_password: password
-          }
-          login_recruiter(obj).then((data) => {
-            if (data.tag === true) {
-              localStorage.setItem("recruiter_token", data.token);
-            }
-            console.log(data.message);
-          })
-            }
+        console.log(data.message);
+      })
+    }
+
+  
     setEmail('');
     setPassword('');
+    
   }
-        
-       
 
   return (
     <>
@@ -87,9 +79,6 @@ export default function Login() {
             className="role shadow-2xl p-3 w-[85%] text-xl ml-10 bg-white  outline-none border-2 rounded-xl"
           />
 
-
-
-
         <div className="location mt-5">
           <label className="text-xl ml-10 font-medium">  Password</label>
           <br/>
@@ -98,9 +87,29 @@ export default function Login() {
             value={password}
             onChange={((e)=>setPassword(e.target.value))}
            
-            className="location p-3 border-2 shadow-2xl w-[85%] text-xl  ml-10 bg-white outline-none rounded-xl"
+            className="location p-3 border-2 shadow-2xl w-[85%] text-xl  ml-10  bg-white outline-none rounded-xl"
           />
         </div>
+        <div className="jobtype mt-5">
+            <label className="jobtype ml-10 text-xl font-medium ">
+              User Type{" "}
+            </label>
+            <br />
+            <select id="userType" className="job-type shadow-2xl p-3 w-[85%] text-xl ml-10 mb-5 border-2 bg-white outline-none rounded-xl">
+              <option value="applicant">Applicant</option>
+              <option value="recruiter">Recruiter</option>
+            </select>
+          </div>
+
+        <button
+            className="submit p-3 border-2 shadow-2xl w-[85%] text-xl hover:bg-[#c0c0c0] ml-10 mb-5 bg-white outline-none rounded-xl "
+            type="submit"
+            onClick={handleChange}
+
+          >
+            Submit
+          </button>
+      </div>
       </div>
     </>
 
