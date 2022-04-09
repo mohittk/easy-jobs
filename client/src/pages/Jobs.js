@@ -1,7 +1,14 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import JobContainer from "../components/JobContainer";
 
 export default function Jobs() {
+
+    const jobSearch = () =>{
+        
+
+    }
+
   return (
     <>
       <div className="upperbar bg-indigo-600">
@@ -20,7 +27,7 @@ export default function Jobs() {
 
         <div className="flex flex-row">
         <select className="p-3 w-[50%] text-xl m-5 bg-[#e0e0e0] outline-none rounded-xl ">
-          <option  value="full-time">Full-Time</option>
+          <option value="full-time">Full-Time</option>
           <option selected value="part-time">
             Part-Time
           </option>
@@ -33,10 +40,12 @@ export default function Jobs() {
           </option>
         </select>
 
-        <button className="p-3 w-[50%] text-white text-xl m-5 rounded-xl bg-indigo-600">
-            Search
+        <button className="p-3 w-[50%] text-white text-xl m-5 rounded-xl bg-indigo-600"  onClick={jobSearch}>
+           Search
         </button>
         </div>
+
+        
 
       </div>
 
@@ -45,6 +54,9 @@ export default function Jobs() {
       <h2 className="text-3xl font-semibold  m-5 text-indigo-600">
          Results Found
         </h2>
+        <JobContainer role="Backend Dev" company="Tesla Corp." location="Remote - work from home"/>
+        <JobContainer role="Frontend Dev" company="SpaceX Inc." location="San Francisco, US"/>
+        <JobContainer role="Cloud Engineer" company="Google Inc." location="California, US"/>
 
       </div>
     </>
