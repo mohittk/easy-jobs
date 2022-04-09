@@ -8,6 +8,8 @@ export default function PostJob() {
   const [jobType, setJobType] = useState("");
   const [location, setLocation] = useState("");
 
+ 
+
   return (
     <>
       <div className="upperbar bg-indigo-600">
@@ -69,7 +71,7 @@ export default function PostJob() {
         <button
           className="submit p-3 border-2 shadow-2xl w-[20%] text-xl hover:bg-[#c0c0c0] ml-20 bg-white outline-none rounded-xl "
           type="submit"
-          onClick={((e)=>{setLocation(''); setCompany(''); setJobType(''); setRole('');})}
+
         >
           Submit
         </button>

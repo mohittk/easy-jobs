@@ -3,35 +3,42 @@ import React, { useState } from 'react';
 
 export default function JobContainer(props){
     const [isOpen,setIsOpen]=useState(false);
+
+    
   
     return(
         <>
         {
             isOpen &&  <>
-            <div className="fixed inset-0 z-50 overflow-auto bg-smoke-light flex drop-shadow-2xl backdrop-blur-[2px]">
-            <div className="relative p-8 bg-white w-full max-w-md m-auto flex-col flex rounded-lg">
+            <div className="fixed inset-0 z-50 overflow-auto bg-smoke-light flex drop-shadow-2xl backdrop-blur-[3px]">
+            <div className="relative p-8 bg-white w-full max-w-2xl m-auto flex-col flex rounded-lg">
                 <div className='flex items-center justify-between'>
-                {props.role}
+                    <div className="other-data flex flex-col text-2xl">
+                        Role : {props.role}<br />
+                        Company Name : {props.company} <br />
+                        Location : {props.location} <br />
+                        Job Type : {props.jobtype} <br />
+                    </div>
+                <div className="flex flex-col text-xl">
+                
                 <button 
-                className="bg-indigo-600 rounded-xl text-white font-medium p-3"
+                className="bg-indigo-600 m-2 rounded-xl text-white font-medium p-3"
                 onClick={()=>setIsOpen(false)}
                 >
                     Close
                 </button>
+                <button 
+                className="bg-indigo-600 m-2 rounded-xl text-white font-medium p-3"
+                onClick={()=>setIsOpen(false)}
+                >
+                    Apply
+                </button>
                 </div>
-            hello world
-            <br/>
-            hello world
-            <br/>
-            hello world
-            <br/>
-            hello world
-            <br/>
-            hello world
-            <br/>
-            </div>
-            hello world
-            <br/>
+                
+                </div>
+               
+                </div>
+            
             
             </div>
             </>
