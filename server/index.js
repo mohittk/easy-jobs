@@ -3,6 +3,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const mongoose = require("mongoose");
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
 
 // API ROUTES
 const applicantRoutes = require("./routes/applicantRoutes")
@@ -29,11 +30,6 @@ mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true }).then((
 app.use("/api/applicant", applicantRoutes);
 app.use("/api/recruiter", recruiterRoutes);
 
-app.get("/", (req, res) => {
-    res.json({
-        "message": "hello world"
-    })
-})
 
 app.listen(port, () => {
     console.log("The server is up and running at port 5000");

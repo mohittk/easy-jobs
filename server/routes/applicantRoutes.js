@@ -7,6 +7,25 @@ const Applicant = require("../models/Applicant");
 const Application = require("../models/Application");
 const JobPost = require("../models/JobPost");
 
+router.post("/auth", async (req, res) => {
+    const token = req.body.token;
+    try {
+        const decoded = jwt.verify(token, "easy_jobs_proj");
+        const user = Applicant.findOne({ _id: decoded.id });
+        return res.json({
+            "tag": true,
+            "message": "Authenticated user"
+        });
+    }
+    catch (error) {
+        console.log(error);
+        return res.json({
+            "tag": false,
+            "message": "Not Atuhenticated Applicant"
+        });
+    }
+})
+
 router.post("/signup", async (req, res) => {
 
     let { applicant_email,
@@ -60,20 +79,20 @@ router.post("/login", async (req, res) => {
 })
 
 router.get("/application", async (req, res) => {
-   
-    const objId=req.body.application_applicant_id;
 
-    let applications = await Application.find({application_applicant_id:objId});
+    const objId = req.body.application_applicant_id;
+
+    let applications = await Application.find({ application_applicant_id: objId });
     if (applications.length > 0) {
 
-        let obj=[];
-        let len=applications.length;
+        let obj = [];
+        let len = applications.length;
 
-        for(let i=0;i<len;i++){
-            let temp = await JobPost.findOne({_id:application_jobpost_id});
+        for (let i = 0; i < len; i++) {
+            let temp = await JobPost.findOne({ _id: application_jobpost_id });
             obj.push_back(temp);
         }
-        
+
         return res.json({ "tag": true, "message": obj });
     }
     return res.json({ "tag": false });

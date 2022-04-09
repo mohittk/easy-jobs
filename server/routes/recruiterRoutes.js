@@ -6,6 +6,24 @@ var bcrypt = require('bcryptjs');
 const Recruiter = require("../models/Recruiter");
 const JobPost = require("../models/JobPost");
 
+router.post("/auth", async (req, res) => {
+    const token = req.body.token;
+    try {
+        const decoded = jwt.verify(token, "easy_jobs_proj");
+        const user = Recruiter.findOne({ _id: decoded.id });
+        return res.json({
+            "tag": true,
+            "message": "Authenticated user"
+        });
+    }
+    catch (error) {
+        console.log(error);
+        return res.json({
+            "tag": false,
+            "message": "Not Atuhenticated Recruiter"
+        });
+    }
+})
 
 router.post("/signup", async (req, res) => {
 
