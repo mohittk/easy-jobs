@@ -60,6 +60,7 @@ export default function Jobs() {
         <JobContainer role="Backend Dev" company="Tesla Corp." location="Remote - work from home" jobtype="full-time" />
         <JobContainer role="Frontend Dev" company="SpaceX Inc." location="San Francisco, US" jobtype="part-time" />
         <JobContainer role="Cloud Engineer" company="Google Inc." location="California, US" jobtype="full-time"/>
+        
 
       </div>
     </>

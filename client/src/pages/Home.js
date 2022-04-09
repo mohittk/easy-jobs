@@ -26,7 +26,7 @@ export default function Home() {
           </div>
 
         <div className="image absolute right-0 " >
-          <img className=" mr-20 rounded-2xl" src={main} />
+          <img className="fadeupdown mr-20 rounded-2xl" src={main} />
         </div>
         </div>
 
