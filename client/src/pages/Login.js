@@ -60,12 +60,24 @@ export default function Login(){
             type="text"
             value={password}
             onChange={((e)=>setPassword(e.target.value))}
-            className="location p-3 border-2 shadow-2xl w-[20%] text-xl  ml-20 mb-10 bg-white outline-none rounded-xl"
+            className="location p-3 border-2 shadow-2xl w-[20%] text-xl  ml-20 bg-white outline-none rounded-xl"
           />
         </div>
 
+
+        <div className="jobtype mt-5">
+          <label className="jobtype ml-20 text-xl font-medium ">
+            User Type{" "}
+          </label>
+          <br />
+          <select className="job-type shadow-2xl p-3 w-[20%] text-xl border-2 ml-20 mb-10 bg-white outline-none rounded-xl">
+            <option value="1">Applicant</option>
+            <option value="1">Recruiter</option>
+          </select>
+        </div>
+
         <button
-          className="submit p-3 border-2 shadow-2xl w-[20%] text-xl hover:bg-[#c0c0c0] ml-20 bg-white outline-none rounded-xl "
+          className="submit p-3 border-2 shadow-2xl w-[20%] text-xl hover:bg-[#c0c0c0] ml-20  bg-white outline-none rounded-xl "
           type="submit"
           onClick={handleChange}
 
