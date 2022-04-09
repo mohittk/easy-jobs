@@ -48,19 +48,16 @@ export default function JobContainer(props){
             <div className="company text-lg p-1 bg-indigo-600 text-white rounded w-[35%] text-center">
                 {props.company}</div>
                 </div>
-            <div className="job-location m-3 w-[50%] text-xl font-medium p-3">
-                {props.location}
+                <div className="job-type m-3 w-[50%] text-xl font-medium p-3">
+                    {props.jobtype}
+                </div>
+                <button
+                    className="check m-3 w-[50%] bg-indigo-600 rounded-xl text-white font-medium p-3"
+                    onClick={() => setIsOpen(true)}
+                >
+                    Check
+                </button>
             </div>
-            <div className="job-type m-3 w-[50%] text-xl font-medium p-3">
-                {props.jobtype}
-            </div>
-            <button 
-            className="check m-3 w-[50%] bg-indigo-600 rounded-xl text-white font-medium p-3"
-            onClick={()=>setIsOpen(true)}
-            >
-                Check
-            </button>
-        </div>
         </>
 
 
