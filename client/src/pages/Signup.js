@@ -1,11 +1,24 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import {useState} from 'react';
 import {Link} from 'react-router-dom'
 
 export default function Signup() {
 
     const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [fullname, setFullname] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleChange = async (e) => {
+        e.preventDefault();
+
+        setEmail('');
+        setFullname('');
+        setPassword('');
+
+    }
 
   return (
     <>
@@ -33,6 +46,8 @@ export default function Signup() {
           <br />
           <input
             type="text"
+            value={fullname}
+            onChange={((e)=>{setFullname(e.target.value)})}
             className="role shadow-2xl p-3 w-[20%] text-xl ml-20 bg-white  outline-none border-2 rounded-xl"
           />
        
@@ -55,6 +70,8 @@ export default function Signup() {
           <br />
           <input
             type="text"
+            value={email}
+            onChange={((e)=> {setEmail(e.target.value)})}
             className="company shadow-2xl p-3 w-[20%] text-xl border-2 ml-20 bg-white outline-none rounded-xl"
           />
         </div>
@@ -64,6 +81,8 @@ export default function Signup() {
           <br />
           <input
             type="text"
+            value={password}
+            onChange={((e)=>{setPassword(e.target.value)})}
             className="location p-3 border-2 shadow-2xl w-[20%] text-xl mb-10 ml-20 bg-white outline-none rounded-xl"
           />
         </div>
@@ -71,6 +90,7 @@ export default function Signup() {
         <button
           className="submit p-3 border-2 shadow-2xl w-[20%] text-xl hover:bg-[#c0c0c0] ml-20 bg-white outline-none rounded-xl "
           type="submit"
+          onClick={handleChange}
 
         >
           Submit

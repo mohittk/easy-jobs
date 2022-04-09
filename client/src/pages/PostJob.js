@@ -9,9 +9,15 @@ export default function PostJob() {
   const [jobType, setJobType] = useState("");
   const [location, setLocation] = useState("");
 
-  const handleChange = (e) =>{
-    const role = e.target.value;
-    const company = e.target.value;
+  const handleChange = async(e) =>{
+    e.preventDefault();
+
+    setRole('');
+    setCompany('');
+    setJobType('');
+    setLocation('');
+
+    
 
   }
  
@@ -51,7 +57,7 @@ export default function PostJob() {
           <label className="jobtype ml-20 text-xl font-medium ">
             Select job type{" "}
           </label>
-          <select onChange={((e)=>{setJobType(e.target.value)})}   className="job-type shadow-2xl p-3 w-[20%] text-xl border-2 m-3 bg-white outline-none rounded-xl">
+          <select value={jobType} onChange={((e)=>{setJobType(e.target.value)})}   className="job-type shadow-2xl p-3 w-[20%] text-xl border-2 m-3 bg-white outline-none rounded-xl">
             <option value="1">Full-Time</option>
             <option value="1">Part-Time</option>
           </select>
@@ -61,7 +67,7 @@ export default function PostJob() {
           <label className="text-xl ml-20 font-medium">
             Enter Your company name
           </label>
-          <input
+          <input value={company}
             type="text"
             onChange={((e)=>{setCompany(e.target.value)})}
             className="company shadow-2xl p-3 w-[20%] text-xl border-2 m-3 bg-white outline-none rounded-xl"
@@ -72,6 +78,7 @@ export default function PostJob() {
           <label className="text-xl ml-20 font-medium"> Enter Location </label>
           <input
             type="text"
+            value={location}
             onChange={((e)=>{setLocation(e.target.value)})}
             className="location p-3 border-2 shadow-2xl w-[20%] text-xl m-5 bg-white outline-none rounded-xl"
           />
@@ -80,6 +87,7 @@ export default function PostJob() {
         <button
           className="submit p-3 border-2 shadow-2xl w-[20%] text-xl hover:bg-[#c0c0c0] ml-20 bg-white outline-none rounded-xl "
           type="submit"
+          onClick={handleChange}
 
         >
           Submit

@@ -1,8 +1,24 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import {Link} from 'react-router-dom'
+import {useState} from "react"
 
 export default function Login(){
+
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleChange = async (e) => {
+        e.preventDefault();
+
+        setEmail('');
+        setPassword('');
+
+    }
+
+
+
   return (
     <>
       <div className="signup-page">
@@ -29,6 +45,8 @@ export default function Login(){
           <br />
           <input
             type="text"
+            value={email}
+            onChange={((e)=>{setEmail(e.target.value)})}
             className="role shadow-2xl p-3 w-[20%] text-xl ml-20 bg-white  outline-none border-2 rounded-xl"
           />
     
@@ -40,6 +58,8 @@ export default function Login(){
           <br/>
           <input
             type="text"
+            value={password}
+            onChange={((e)=>setPassword(e.target.value))}
             className="location p-3 border-2 shadow-2xl w-[20%] text-xl  ml-20 mb-10 bg-white outline-none rounded-xl"
           />
         </div>
@@ -47,6 +67,7 @@ export default function Login(){
         <button
           className="submit p-3 border-2 shadow-2xl w-[20%] text-xl hover:bg-[#c0c0c0] ml-20 bg-white outline-none rounded-xl "
           type="submit"
+          onClick={handleChange}
 
         >
           Submit
