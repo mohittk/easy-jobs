@@ -6,7 +6,6 @@ import { login_applicant } from "../controllers/applicant";
 import { login_recruiter } from "../controllers/recruiter";
 
 
-
 export default function Login() {
 
   const [email, setEmail] = useState('')
@@ -42,26 +41,27 @@ export default function Login() {
 
     setEmail('');
     setPassword('');
-
   }
+  
+
+  
 
 
 
   return (
-    <>
-
+  <>
       <div className="signup-page">
 
         <div className="upperbar bg-indigo-600">
-          <div className="nav float-right p-[3.5rem] text-3xl font-encode text-white">
-            <Navbar active="singup" />
+          <div className="nav float-right p-[3rem] text-2xl  font-encode text-white">
+            <Navbar active="post_a_job" />
           </div>
           <Link to="/">
-            <h1 className="text-6xl text-white  shadow-2xl font-medium p-10 font-titan">
-              {" "}
-              Easy Jobs
-            </h1>
-          </Link>
+        <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
+          {" "}
+          Easy Jobs
+        </h1>
+        </Link>
         </div>
 
         <div>
@@ -71,8 +71,7 @@ export default function Login() {
           <br />
           <span className="text-xl">Welcome Back !</span>
 
-
-          <br />
+          
           <input
             type="text"
             value={email}

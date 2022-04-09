@@ -13,11 +13,11 @@ export default function Jobs() {
   return (
     <>
       <div className="upperbar bg-indigo-600">
-        <div className="nav float-right p-[3.5rem] text-3xl font-encode text-white">
+        <div className="nav float-right p-[3rem] text-2xl  font-encode text-white">
           <Navbar active="jobs"/>
         </div>
         <Link to="/">
-        <h1 className="text-6xl text-white  shadow-2xl font-medium p-10 font-titan">
+        <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
           {" "}
           Easy Jobs
         </h1>
