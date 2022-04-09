@@ -45,42 +45,45 @@ export default function PostJob() {
         </div>
         <div className="role">
           <label className="text-xl ml-20 font-medium ">Enter the role </label>
+          <br/>
           <input
             type="text"
             value={role}
             onChange={((e)=>{setRole(e.target.value);})}
-            className="role shadow-2xl p-3 w-[20%] text-xl m-3 bg-white  outline-none border-2 rounded-xl"
+            className="role shadow-2xl p-3 w-[20%] text-xl ml-20 bg-white  outline-none border-2 rounded-xl"
           />
         </div>
 
-        <div className="jobtype">
+        <div className="jobtype mt-5">
           <label className="jobtype ml-20 text-xl font-medium ">
             Select job type{" "}
           </label>
-          <select value={jobType} onChange={((e)=>{setJobType(e.target.value)})}   className="job-type shadow-2xl p-3 w-[20%] text-xl border-2 m-3 bg-white outline-none rounded-xl">
+          <br />
+          <select value={jobType} onChange={((e)=>{setJobType(e.target.value)})}   className="job-type shadow-2xl p-3 w-[20%] text-xl border-2 ml-20 bg-white outline-none rounded-xl">
             <option value="1">Full-Time</option>
             <option value="1">Part-Time</option>
           </select>
         </div>
 
-        <div className="company">
+        <div className="company mt-5">
           <label className="text-xl ml-20 font-medium">
             Enter Your company name
           </label>
+          <br />
           <input value={company}
             type="text"
             onChange={((e)=>{setCompany(e.target.value)})}
-            className="company shadow-2xl p-3 w-[20%] text-xl border-2 m-3 bg-white outline-none rounded-xl"
+            className="company shadow-2xl p-3 w-[20%] text-xl border-2 ml-20 bg-white outline-none rounded-xl"
           />
         </div>
 
-        <div className="location">
+        <div className="location mt-5">
           <label className="text-xl ml-20 font-medium"> Enter Location </label>
-          <input
+          <br /><input
             type="text"
             value={location}
             onChange={((e)=>{setLocation(e.target.value)})}
-            className="location p-3 border-2 shadow-2xl w-[20%] text-xl m-5 bg-white outline-none rounded-xl"
+            className="location p-3 border-2 shadow-2xl w-[20%] text-xl ml-20 mb-10 bg-white outline-none rounded-xl"
           />
         </div>
 
