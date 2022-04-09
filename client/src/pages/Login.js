@@ -23,7 +23,6 @@ export default function Login() {
       login_applicant(obj).then((data) => {
         if (data.tag === true) {
           localStorage.setItem("applicant_token", data.token);
-          
         }
         console.log(data.message);
       })
@@ -36,7 +35,6 @@ export default function Login() {
       login_recruiter(obj).then((data) => {
         if (data.tag === true) {
           localStorage.setItem("recruiter_token", data.token);
-          
         }
         console.log(data.message);
       })
@@ -93,8 +91,8 @@ export default function Login() {
             className="location p-3 border-2 shadow-2xl w-[20%] text-xl  ml-20 bg-white outline-none rounded-xl"
           />
         </div>
-        </div>
-      </>
+      </div>
+    </>
 
-      );
+  );
 }
