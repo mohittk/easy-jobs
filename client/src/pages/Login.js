@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { useState } from "react"
 import { login_applicant } from "../controllers/applicant";
 import { login_recruiter } from "../controllers/recruiter";
-import jwt from 'jsonwebtoken';
 
 
 export default function Login() {
@@ -23,8 +22,7 @@ export default function Login() {
       login_applicant(obj).then((data) => {
         if (data.tag === true) {
           localStorage.setItem("applicant_token", data.token);
-          const test = jwt.decode(data.token);
-          console.log(test);
+          
         }
         console.log(data.message);
       })
@@ -37,8 +35,7 @@ export default function Login() {
       login_recruiter(obj).then((data) => {
         if (data.tag === true) {
           localStorage.setItem("recruiter_token", data.token);
-          const test = jwt.decode(data.token);
-          console.log(test);
+          
         }
         console.log(data.message);
       })
@@ -69,38 +66,34 @@ export default function Login() {
         </Link>
         </div>
 
+        <div>
 
-            {" "}
-            Login
-            <br />
-            <span className="text-xl">Welcome Back !</span>
-          
-
+          {" "}
+          Login
           <br />
+          <span className="text-xl">Welcome Back !</span>
+
+          
           <input
             type="text"
             value={email}
 
           />
+        </div>
 
 
+        <div className="location mt-5">
+          <label className="text-xl ml-20 font-medium">  Password</label>
+          <br />
+          <input
+            type="password"
+            value={password}
+            onChange={((e) => setPassword(e.target.value))}
+            className="location p-3 border-2 shadow-2xl w-[20%] text-xl  ml-20 bg-white outline-none rounded-xl"
+          />
+        </div>
+        </div>
+      </>
 
-          <div className="location mt-5">
-            <label className="text-xl ml-20 font-medium">  Password</label>
-            <br />
-            <input
-              type="password"
-              value={password}
-              onChange={((e) => setPassword(e.target.value))}
-              className="location p-3 border-2 shadow-2xl w-[20%] text-xl  ml-20 bg-white outline-none rounded-xl"
-            />
-          </div> 
-          </div>
-          </>
-
-          )
-        }
-        
-
-
-
+      );
+}
