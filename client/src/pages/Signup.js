@@ -27,37 +27,41 @@ export default function Signup() {
            <span className="text-xl">Tell us about yourself !</span>
           </h1>
           <label className="text-xl ml-20 font-medium "> Full Name</label>
+          <br />
           <input
             type="text"
-            className="role shadow-2xl p-3 w-[20%] text-xl m-3 bg-white  outline-none border-2 rounded-xl"
+            className="role shadow-2xl p-3 w-[20%] text-xl ml-20 bg-white  outline-none border-2 rounded-xl"
           />
        
 
-        <div className="jobtype">
+        <div className="jobtype mt-5">
           <label className="jobtype ml-20 text-xl font-medium ">
             User Type{" "}
           </label>
-          <select className="job-type shadow-2xl p-3 w-[20%] text-xl border-2 m-3 bg-white outline-none rounded-xl">
+          <br />
+          <select className="job-type shadow-2xl p-3 w-[20%] text-xl border-2 ml-20 bg-white outline-none rounded-xl">
             <option value="1">Applicant</option>
             <option value="1">Recruiter</option>
           </select>
         </div>
 
-        <div className="company">
+        <div className="company mt-5">
           <label className="text-xl ml-20 font-medium">
             Email Address
           </label>
+          <br />
           <input
             type="text"
-            className="company shadow-2xl p-3 w-[20%] text-xl border-2 m-3 bg-white outline-none rounded-xl"
+            className="company shadow-2xl p-3 w-[20%] text-xl border-2 ml-20 bg-white outline-none rounded-xl"
           />
         </div>
 
-        <div className="location">
+        <div className="location mt-5">
           <label className="text-xl ml-20 font-medium"> Password</label>
+          <br />
           <input
             type="text"
-            className="location p-3 border-2 shadow-2xl w-[20%] text-xl m-5 bg-white outline-none rounded-xl"
+            className="location p-3 border-2 shadow-2xl w-[20%] text-xl mb-10 ml-20 bg-white outline-none rounded-xl"
           />
         </div>
 
