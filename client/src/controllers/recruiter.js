@@ -36,6 +36,18 @@ export const apply_jobpost = async (obj) => {
     return ans;
 }
 
+export const get_jobposts = async (obj) => {
+    const res = await fetch(`${base}/api/recruiter/jobpost`, {
+        method: "GET",
+        body: JSON.stringify(obj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const ans = await res.json();
+    return ans;
+}
+
 export const edit_jobpost = async (obj) => {
     const res = await fetch(`${base}/api/recruiter/jobpost`, {
         method: "POST",

@@ -59,6 +59,21 @@ router.post("/login", async (req, res) => {
 
 })
 
+router.get("/jobpost", async (req, res) => {
+
+    const objId = req.body._id;
+
+    let jobsposted = await JobPost.find({ jobpost_recruiter_id: objId });
+    if (jobsposted.length > 0) {
+
+        let obj = jobsposted;
+
+        return res.json({ "tag": true, "message": obj });
+    }
+    return res.json({ "tag": false });
+
+})
+
 router.post("/jobpost", async (req, res) => {
     let {
         jobpost_recruiter_id,
@@ -83,7 +98,7 @@ router.post("/jobpost", async (req, res) => {
         jobpost_role,
         jobpost_pay,
         jobpost_job_description,
-        jobpost_experience 
+        jobpost_experience
     })
     jobpost.save(function (error, document) {
         if (error) {

@@ -5,6 +5,7 @@ var bcrypt = require('bcryptjs');
 
 const Applicant = require("../models/Applicant");
 const Application = require("../models/Application");
+const JobPost = require("../models/JobPost");
 
 router.post("/signup", async (req, res) => {
 
@@ -55,6 +56,27 @@ router.post("/login", async (req, res) => {
     else {
         return res.json({ "message": "Login failed", "tag": false })
     }
+
+})
+
+router.get("/application", async (req, res) => {
+   
+    const objId=req.body.application_applicant_id;
+
+    let applications = await Application.find({application_applicant_id:objId});
+    if (applications.length > 0) {
+
+        let obj=[];
+        let len=applications.length;
+
+        for(let i=0;i<len;i++){
+            let temp = await JobPost.findOne({_id:application_jobpost_id});
+            obj.push_back(temp);
+        }
+        
+        return res.json({ "tag": true, "message": obj });
+    }
+    return res.json({ "tag": false });
 
 })
 
