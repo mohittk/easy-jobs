@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 
 export default function Signup() {
+  document.title="Signup | IIIT-Bhopal Library";
   return (
     <>
       <h1 className="text-blue-800 rounded-xl shadow-2xl text-3xl p-10 w-[25rem] font-alfa ml-10">
