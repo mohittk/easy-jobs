@@ -24,7 +24,7 @@ export default function JobContainer(props) {
                                 </button>
                             </div>
                             <div className='text-xl mb-2'>({props.role})</div>
-                            <div className='text-sm mb-2'>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </div>
+                            
                             <div className='flex items-center justify-start mb-2'>
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

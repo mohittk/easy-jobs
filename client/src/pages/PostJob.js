@@ -11,9 +11,7 @@ export default function PostJob() {
 
   const handleChange = async(e) =>{
     e.preventDefault();
-
     
-
     setRole('');
     setCompany('');
     setJobType('');
