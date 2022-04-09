@@ -10,10 +10,14 @@ import Signup from '../pages/Signup';
 export default function Navbar(){
     return(
         <>
-        <Link className="home p-4 ml-20 mt-7 w-[50rem] bg-yellow-700 rounded-xl text-yellow-400 font-bold " to="/">Home</Link>
-        <Link className="about  p-4 ml-20 mt-7 w-[50rem] bg-yellow-700 rounded-xl text-yellow-400 font-bold" to="/about">About</Link>
-        <Link className="login  p-4 ml-20 mt-7 w-[50rem] bg-yellow-700 rounded-xl text-yellow-400 font-bold" to="/login">Login</Link>
-        <Link className="signup  p-4 ml-20 mt-7 w-[50rem] bg-yellow-700 rounded-xl text-yellow-400 font-bold" to="/signup">Signup</Link>
+
+        <div className="navbar p-4 bg-opacity-60 rounded-full  mt-7 w-100 shadow-2xl text-center">
+        <Link className="home  mr-2 pl-5 pr-5 pt-2 pb-2  w-[50rem]  rounded-xl text-black font-bold " to="/">Home</Link>
+        <Link className="about  mr-2 pl-5 pr-5 pt-2 pb-2  w-[50rem] rounded-xl text-black font-bold" to="/about">About</Link>
+        <Link className="login  mr-2 pl-5 pr-5 pt-2 pb-2  w-[50rem]  rounded-xl text-black font-bold" to="/login">Login</Link>
+        <Link className="signup  mr-2 pl-5 pr-5 pt-2 pb-2  w-[50rem]  rounded-xl text-black font-bold" to="/signup">Signup</Link>
+
+        </div>
         </>
     )
 }
