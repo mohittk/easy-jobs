@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import JobContainer from "../components/JobContainer";
-
+import {Link} from 'react-router-dom';
 export default function Jobs() {
 
     const jobSearch = () =>{
@@ -15,10 +15,12 @@ export default function Jobs() {
         <div className="nav float-right p-[3.5rem] text-3xl font-encode text-white">
           <Navbar />
         </div>
+        <Link to="/">
         <h1 className="text-6xl text-white  shadow-2xl font-medium p-10 font-titan">
           {" "}
           Easy Jobs
         </h1>
+        </Link>
       </div>
       <div className="find-jobs-container bg-white shadow-2xl rounded-xl  p-16 ml-10 mr-10 mt-10">
         <h2 className="text-3xl font-semibold  m-5 text-indigo-600">
@@ -54,9 +56,9 @@ export default function Jobs() {
       <h2 className="text-3xl font-semibold  m-5 text-indigo-600">
          Results Found
         </h2>
-        <JobContainer role="Backend Dev" company="Tesla Corp." location="Remote - work from home"/>
-        <JobContainer role="Frontend Dev" company="SpaceX Inc." location="San Francisco, US"/>
-        <JobContainer role="Cloud Engineer" company="Google Inc." location="California, US"/>
+        <JobContainer role="Backend Dev" company="Tesla Corp." location="Remote - work from home" jobtype="full-time" />
+        <JobContainer role="Frontend Dev" company="SpaceX Inc." location="San Francisco, US" jobtype="part-time" />
+        <JobContainer role="Cloud Engineer" company="Google Inc." location="California, US" jobtype="full-time"/>
 
       </div>
     </>
