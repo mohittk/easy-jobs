@@ -1,60 +1,80 @@
 import React, { useState } from 'react';
 
 
-export default function JobContainer(props){
-    const [isOpen,setIsOpen]=useState(false);
+export default function JobContainer(props) {
+    const [isOpen, setIsOpen] = useState(false);
 
-    
-  
-    return(
+
+
+    return (
         <>
-        {
-            isOpen &&  <>
-            <div className="fixed inset-0 z-50 overflow-auto bg-smoke-light flex drop-shadow-2xl backdrop-blur-[3px]">
-            <div className="relative p-8 bg-white w-full max-w-2xl m-auto flex-col flex rounded-lg">
-                <div className='flex items-center justify-between'>
-                    <div className="other-data flex flex-col text-2xl">
-                        Role : {props.role}<br />
-                        Company Name : {props.company} <br />
-                        Location : {props.location} <br />
-                        Job Type : {props.jobtype} <br />
+            {
+                isOpen && <>
+                    <div className="fixed inset-0 z-50 overflow-auto bg-smoke-light flex drop-shadow-2xl backdrop-blur-[2px]">
+                        <div className="relative p-8 bg-white w-full max-w-md m-auto flex-col flex rounded-lg">
+                            <div className='flex items-center justify-between'>
+                                <div className='text-2xl font-medium'>{props.company}</div>
+                                <button
+
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div className='text-xl mb-2'>({props.role})</div>
+                            <div className='text-sm mb-2'>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </div>
+                            <div className='flex items-center justify-start mb-2'>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <span>{props.location}</span>
+                            </div>
+
+                            <div className='flex items-center justify-start mb-2'>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>{"6 months"} - {props.jobtype}</div>
+                            </div>
+
+                            <div className='flex items-center justify-start mb-2'>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </div>
+                                <div>Salary : {"8 LPA"}</div>
+                            </div>
+
+                            <div className='mb-2'>Recruiter : {"Abc"}</div>
+
+                            <button
+                                className="check m-3 bg-indigo-600 rounded-xl text-white font-medium p-3"
+                            >
+                                Apply Now
+                            </button>
+                        </div>
                     </div>
-                <div className="flex flex-col text-xl">
-                
-                <button 
-                className="bg-indigo-600 m-2 rounded-xl text-white font-medium p-3"
-                onClick={()=>setIsOpen(false)}
-                >
-                    Close
-                </button>
-                <button 
-                className="bg-indigo-600 m-2 rounded-xl text-white font-medium p-3"
-                onClick={()=>setIsOpen(false)}
-                >
-                    Apply
-                </button>
-                </div>
-                
-                </div>
-               
-                </div>
-            
-            
-            </div>
-            </>
-        }
-        <div className="job-container flex flex-row m-10 shadow-2xl">
-            <div className="role w-[50%] p-3 text-2xl font-medium ">{props.role}
-            <div className="company text-lg p-1 bg-indigo-600 text-white rounded w-[35%] text-center">
-                {props.company}</div>
+                </>
+            }
+            <div className="job-container flex flex-row m-10 shadow-2xl">
+                <div className="role w-[50%] p-3 text-2xl font-medium ">{props.role}
+                    <div className="company text-lg p-1 bg-indigo-600 text-white rounded w-[35%] text-center">
+                        {props.company}</div>
                 </div>
                 <div className="job-type m-3 w-[50%] text-xl font-medium p-3">
                     {props.jobtype}
                 </div>
                 <button
                     className="check m-3 w-[50%] bg-indigo-600 rounded-xl text-white font-medium p-3"
-                    onClick={() => setIsOpen(true)}
-                >
+                    onClick={() => setIsOpen(true)}>
                     Check
                 </button>
             </div>

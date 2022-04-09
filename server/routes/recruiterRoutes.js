@@ -11,7 +11,7 @@ router.post("/signup", async (req, res) => {
 
     let { recruiter_email,
         recruiter_password,
-        recruiter_name, recruiter_company } = req.body;
+        recruiter_name } = req.body;
 
     const result = await Recruiter.findOne({ recruiter_email });
 
@@ -24,8 +24,7 @@ router.post("/signup", async (req, res) => {
         const recruiter = new Recruiter({
             recruiter_email,
             recruiter_password,
-            recruiter_name,
-            recruiter_company
+            recruiter_name
         })
         recruiter.save(function (error, document) {
             if (error) {
