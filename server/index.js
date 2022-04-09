@@ -6,15 +6,24 @@ const mongoose = require("mongoose");
 var bcrypt = require('bcryptjs');
 const dotenv = require('dotenv');
 const cors=require("cors");
-const authRoutes=require("./routes/authRoutes")
+
 const applicantRoutes=require("./routes/applicantRoutes")
 const recruiterRoutes=require("./routes/recruiterRoutes")
 
 
+const DB = process.env.DATABASE;
+mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+    console.log("Database connected.");
+}).catch((err) => {
+    console.log("Database error");
+    console.log(err);
+});
+
+require('dotenv').config();
 app.use(cors());
 app.use(express.json());    
 
-app.use("/api/auth",authRoutes);
+
 app.use("/api/applicant",applicantRoutes);
 app.use("/api/recruiter",recruiterRoutes);
 
