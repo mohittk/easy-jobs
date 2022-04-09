@@ -83,7 +83,7 @@ router.post("/jobpost", async (req, res) => {
         jobpost_role,
         jobpost_pay,
         jobpost_job_description,
-        jobpost_experience
+        jobpost_experience 
     })
     jobpost.save(function (error, document) {
         if (error) {
