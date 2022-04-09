@@ -9,11 +9,8 @@ import jwt from "jsonwebtoken";
 
 export default function Login() {
 
-
-
-
-  setEmail('');
-  setPassword('');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleChange = async (e) => {
     e.preventDefault();
@@ -55,8 +52,9 @@ export default function Login() {
 
 
   return (
-    <>
+    <div>
       <div className="signup-page">
+
         <div className="upperbar bg-indigo-600">
           <div className="nav float-right p-[3.5rem] text-3xl font-encode text-white">
             <Navbar active="post_a_job" />
@@ -108,7 +106,8 @@ export default function Login() {
               className="location p-3 border-2 shadow-2xl w-[20%] text-xl  ml-20 bg-white outline-none rounded-xl"
             />
           </div>
+
         </div>
-      </>
-      );
+
+        );
 }

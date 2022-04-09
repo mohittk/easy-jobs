@@ -24,6 +24,17 @@ export const login_applicant = async (obj) => {
     return ans;
 }
 
+export const get_applications = async (obj) => {
+    const res = await fetch(`${base}/api/applicant/application`, {
+        method: "GET",
+        body: JSON.stringify(obj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const ans = await res.json();
+    return ans;
+}
 export const apply_application = async (obj) => {
     const res = await fetch(`${base}/api/applicant/application`, {
         method: "POST",
