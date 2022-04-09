@@ -100,7 +100,7 @@ export default function Signup() {
             <label className="text-xl ml-20 font-medium"> Password</label>
             <br />
             <input
-              type="text"
+              type="password"
               value={password}
               onChange={((e) => { setPassword(e.target.value) })}
               className="location p-3 border-2 shadow-2xl w-[20%] text-xl mb-10 ml-20 bg-white outline-none rounded-xl"

@@ -10,8 +10,10 @@ import jwt from "jsonwebtoken";
 export default function Login() {
 
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
+
+  setEmail('');
+  setPassword('');
 
   const handleChange = async (e) => {
     e.preventDefault();
@@ -24,7 +26,7 @@ export default function Login() {
       login_applicant(obj).then((data) => {
         if (data.tag === true) {
           localStorage.setItem("applicant_token", data.token);
-          const test=jwt.decode(data.token);
+          const test = jwt.decode(data.token);
           console.log(test);
         }
         console.log(data.message);
@@ -38,7 +40,7 @@ export default function Login() {
       login_recruiter(obj).then((data) => {
         if (data.tag === true) {
           localStorage.setItem("recruiter_token", data.token);
-          const test=jwt.decode(data.token);
+          const test = jwt.decode(data.token);
           console.log(test);
         }
         console.log(data.message);
@@ -96,32 +98,17 @@ export default function Login() {
           />
 
 
-
-
           <div className="location mt-5">
             <label className="text-xl ml-20 font-medium">  Password</label>
             <br />
             <input
-              type="text"
+              type="password"
               value={password}
               onChange={((e) => setPassword(e.target.value))}
               className="location p-3 border-2 shadow-2xl w-[20%] text-xl  ml-20 bg-white outline-none rounded-xl"
             />
           </div>
-
-
-          <button
-            className="submit p-3 border-2 shadow-2xl w-[20%] text-xl hover:bg-[#c0c0c0] ml-20  bg-white outline-none rounded-xl "
-            type="submit"
-            onClick={handleChange}
-
-          >
-            Submit
-          </button>
-
-
         </div>
-      </div>
-    </>
-  );
+      </>
+      );
 }
