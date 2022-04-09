@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 var bcrypt = require('bcryptjs');
 
 const Applicant = require("../models/Applicant");
+const Application = require("../models/Application");
 
 router.post("/signup", async (req, res) => {
 
@@ -54,6 +55,40 @@ router.post("/login", async (req, res) => {
     else {
         return res.json({ "message": "Login failed", "tag": false })
     }
+
+})
+
+router.post("/application", async (req, res) => {
+    const { application_applicant_id,
+        application_jobpost_id } = req.body;
+
+    const application = new Application({
+        application_applicant_id,
+        application_jobpost_id
+    })
+    application.save(function (error, document) {
+        if (error) {
+            console.error(error)
+            return res.json({ "message": "try again", "tag": false })
+        }
+        //console.log(document);
+        return res.json({ "message": "Aplication Submitted successfully", tag: true })
+    })
+
+})
+
+router.delete("/application", async (req, res) => {
+    const { _id } = req.body;
+
+    Application.deleteOne({ _id }, function (err) {
+        if (err) {
+            //console.log(err);
+            return res.json({ "message": "Some error occured try again", "tag": false })
+        }
+        else {
+            return res.json({ "message": "Deleted", "tag": true })
+        }
+    });
 
 })
 
