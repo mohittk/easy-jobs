@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import {Link} from 'react-router-dom'
 
 export default function Signup() {
 
@@ -13,10 +14,12 @@ export default function Signup() {
           <div className="nav float-right p-[3.5rem] text-3xl font-encode text-white">
             <Navbar active="post_a_job" />
           </div>
-          <h1 className="text-6xl text-white  shadow-2xl font-medium p-10 font-titan">
-            {" "}
-            Easy Jobs
-          </h1>
+          <Link to="/">
+        <h1 className="text-6xl text-white  shadow-2xl font-medium p-10 font-titan">
+          {" "}
+          Easy Jobs
+        </h1>
+        </Link>
         </div>
 
         <div className="signup-form text-left p-32 bg-white m-32 rounded-lg">

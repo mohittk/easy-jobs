@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
+import {Link}  from 'react-router-dom'
 
 export default function PostJob() {
   const [role, setRole] = useState("");
@@ -8,6 +9,11 @@ export default function PostJob() {
   const [jobType, setJobType] = useState("");
   const [location, setLocation] = useState("");
 
+  const handleChange = (e) =>{
+    const role = e.target.value;
+    const company = e.target.value;
+
+  }
  
 
   return (
@@ -16,10 +22,12 @@ export default function PostJob() {
         <div className="nav float-right p-[3.5rem] text-3xl font-encode text-white">
         <Navbar active="post_a_job"/>
         </div>
+        <Link to="/">
         <h1 className="text-6xl text-white  shadow-2xl font-medium p-10 font-titan">
           {" "}
           Easy Jobs
         </h1>
+        </Link>
       </div>
 
       <div className="post-job-container text-left m-20  p-20 rounded-xl  bg-[#ffffff]">
@@ -33,6 +41,7 @@ export default function PostJob() {
           <label className="text-xl ml-20 font-medium ">Enter the role </label>
           <input
             type="text"
+            value={role}
             onChange={((e)=>{setRole(e.target.value);})}
             className="role shadow-2xl p-3 w-[20%] text-xl m-3 bg-white  outline-none border-2 rounded-xl"
           />
