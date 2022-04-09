@@ -5,7 +5,6 @@ var bcrypt = require('bcryptjs');
 
 const Applicant = require("../models/Applicant");
 
-
 router.post("/signup", async (req, res) => {
 
     let { applicant_email,
