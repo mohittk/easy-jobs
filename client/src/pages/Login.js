@@ -4,24 +4,36 @@ import {Link} from 'react-router-dom'
 import {useState} from "react"
 import { login_applicant } from "../controllers/applicant";
 import { login_recruiter } from "../controllers/recruiter";
-export default function Login(){
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const handleChange = async (e) => {
-        e.preventDefault();
 
-        let login_userType = document.getElementById("login_userType").value;
-        if (login_userType === 'applicant') {
-          let obj = {
-            applicant_email: email,
-            applicant_password: password
-          }
-          login_applicant(obj).then((data) => {
-            if (data.tag === true) {
-              localStorage.setItem("applicant_token", data.token);
-            }
-            console.log(data.message);
-          })
+
+export default function Login() {
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleChange = async (e) => {
+    e.preventDefault();
+    let login_userType = document.getElementById("login_userType").value;
+    if (login_userType === 'applicant') {
+      let obj = {
+        applicant_email: email,
+        applicant_password: password
+      }
+      login_applicant(obj).then((data) => {
+        if (data.tag === true) {
+          localStorage.setItem("applicant_token", data.token);
+        }
+        console.log(data.message);
+      })
+    }
+    else if (login_userType === "recruiter") {
+      let obj = {
+        recruiter_email: email,
+        recruiter_password: password
+      }
+      login_recruiter(obj).then((data) => {
+        if (data.tag === true) {
+          localStorage.setItem("recruiter_token", data.token);
         }
         else if (login_userType === "recruiter") {
           let obj = {
@@ -89,34 +101,8 @@ export default function Login(){
             className="location p-3 border-2 shadow-2xl w-[85%] text-xl  ml-10 bg-white outline-none rounded-xl"
           />
         </div>
-
-
-        <div className="jobtype mt-5">
-
-          <label className="jobtype ml-10 text-xl font-medium ">
-            User Type{" "}
-          </label>
-          <br />
-        
-          <select className="job-type shadow-2xl p-3 w-[85%] text-xl border-2 ml-10 mb-10 bg-white outline-none rounded-xl">
-            <option value="1">Applicant</option>
-            <option value="1">Recruiter</option>
-          </select>
-        </div>
-
-        <button
-          
-          className="submit p-3 border-2 shadow-2xl w-[85%] text-xl hover:bg-[#c0c0c0] ml-10  bg-white outline-none rounded-xl "
-          type="submit"
-          onClick={handleChange}
-
-        >
-          Submit
-        </button>
-    
       </div>
-      </div>
-      
     </>
+
   );
-};
+}
