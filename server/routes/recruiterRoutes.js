@@ -1,16 +1,17 @@
 const express = require("express");
-const router=express.Router();
+const router = express.Router();
 const jwt = require("jsonwebtoken");
 var bcrypt = require('bcryptjs');
 
 const Recruiter = require("../models/Recruiter");
+const JobPost = require("../models/JobPost");
 
 
 router.post("/signup", async (req, res) => {
 
     let { recruiter_email,
         recruiter_password,
-        recruiter_name,recruiter_company } = req.body;
+        recruiter_name, recruiter_company } = req.body;
 
     const result = await Recruiter.findOne({ recruiter_email });
 
@@ -59,5 +60,95 @@ router.post("/login", async (req, res) => {
 
 })
 
+router.post("/jobpost", async (req, res) => {
+    let {
+        jobpost_recruiter_id,
+        jobpost_type,
+        jobpost_mode,
+        jobpost_location,
+        jobpost_company_name,
+        jobpost_duration,
+        jobpost_role,
+        jobpost_pay,
+        jobpost_job_description,
+        jobpost_experience
+    } = req.body;
 
-module.exports =  router;
+    const jobpost = new JobPost({
+        jobpost_recruiter_id,
+        jobpost_type,
+        jobpost_mode,
+        jobpost_location,
+        jobpost_company_name,
+        jobpost_duration,
+        jobpost_role,
+        jobpost_pay,
+        jobpost_job_description,
+        jobpost_experience
+    })
+    jobpost.save(function (error, document) {
+        if (error) {
+            console.error(error)
+            return res.json({ "message": "try again", "tag": false })
+        }
+        //console.log(document);
+        return res.json({ "message": "Jop posted successfully", tag: true })
+    })
+})
+
+router.put("/jobpost", async (req, res) => {
+    let {
+        _id,
+        jobpost_recruiter_id,
+        jobpost_type,
+        jobpost_mode,
+        jobpost_location,
+        jobpost_company_name,
+        jobpost_duration,
+        jobpost_role,
+        jobpost_pay,
+        jobpost_job_description,
+        jobpost_experience
+    } = req.body;
+
+    const jobpost = await JobPost.findOne({ _id });
+
+
+    jobpost.jobpost_recruiter_id = jobpost_recruiter_id;
+    jobpost.jobpost_type = jobpost_type;
+    jobpost.jobpost_mode = jobpost_mode;
+    jobpost.jobpost_location = jobpost_location;
+    jobpost.jobpost_company_name = jobpost_company_name;
+    jobpost.jobpost_duration = jobpost_duration;
+    jobpost.jobpost_role = jobpost_role;
+    jobpost.jobpost_pay = jobpost_pay;
+    jobpost.jobpost_job_description = jobpost_job_description;
+    jobpost.jobpost_experience = jobpost_experience;
+
+
+    jobpost.save(function (error, document) {
+        if (error) {
+            console.error(error)
+            return res.json({ "message": "try again", "tag": false })
+        }
+        //console.log(document);
+        return res.json({ "message": "Jop updated successfully", tag: true })
+    })
+})
+
+router.delete("/jobpost", async (req, res) => {
+    const { _id } = req.body;
+
+    JobPost.deleteOne({ _id }, function (err) {
+        if (err) {
+            //console.log(err);
+            return res.json({ "message": "Some error occured try again", "tag": false })
+        }
+        else {
+            return res.json({ "message": "Deleted", "tag": true })
+        }
+    });
+})
+
+
+module.exports = router;
