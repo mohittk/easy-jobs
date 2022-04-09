@@ -1,16 +1,22 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000; 
+const port = process.env.PORT || 5000;
 const mongoose = require("mongoose");
+const cors = require("cors");
 
-const dotenv = require('dotenv');
-const cors=require("cors");
+// API ROUTES
+const applicantRoutes = require("./routes/applicantRoutes")
+const recruiterRoutes = require("./routes/recruiterRoutes")
 
-const applicantRoutes=require("./routes/applicantRoutes")
-const recruiterRoutes=require("./routes/recruiterRoutes")
+// DOTENV CONFIG
+require('dotenv').config();
 
+// ESSENTIAL MIDDLEWARES
+app.use(cors());
+app.use(express.json());
 
-const DB = "mongodb+srv://easyjobs:easyjobsgdsc@cluster0.ndymv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+// DATABASE CONNECTION
+const DB = process.env.DATABASE;
 mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     console.log("Database connected.");
 }).catch((err) => {
@@ -18,17 +24,14 @@ mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true }).then((
     console.log(err);
 });
 
-require('dotenv').config();
-app.use(cors());
-app.use(express.json());    
 
+// APIS
+app.use("/api/applicant", applicantRoutes);
+app.use("/api/recruiter", recruiterRoutes);
 
-app.use("/api/applicant",applicantRoutes);
-app.use("/api/recruiter",recruiterRoutes);
-
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
     res.json({
-        "message":"hello world"
+        "message": "hello world"
     })
 })
 
