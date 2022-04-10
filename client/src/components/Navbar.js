@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
-import Profile from '../pages/Profile'
+
 
 export default function Navbar({ active }) {
     const navigate = useNavigate();
@@ -9,6 +9,7 @@ export default function Navbar({ active }) {
     let className_jobs = "m-3 p-2 rounded";
     let className_post_a_job = "m-3 p-2 rounded";
     let className_signup = "m-3 p-2 rounded";
+    let className_dashboard = "m-3 p-2 rounded";
 
     if (active === "jobs") {
         className_jobs += " text-blue-300";
@@ -18,6 +19,9 @@ export default function Navbar({ active }) {
     }
     else if (active === "signup") {
         className_signup += " text-blue-300";
+    }
+    else if (active === "dashboard") {
+        className_dashboard += " text-blue-300";
     }
 
     return (
@@ -31,11 +35,11 @@ export default function Navbar({ active }) {
                     (localStorage.getItem("applicant_token") || localStorage.getItem("recruiter_token")) ?
                         (localStorage.getItem("applicant_token") ?
                             <>
-                                <Link className={className_signup} to="/applicant/dashboard" >Dashboard</Link>
+                                <Link className={className_dashboard} to="/applicant/dashboard" >Dashboard</Link>
                                 <button className={className_signup} onClick={() => { localStorage.removeItem("applicant_token"); window.location.reload(); }}>Logout</button>
                             </>
                             : <>
-                                <Link className={className_signup} to="/recruiter/dashboard" >Dashboard</Link>
+                                <Link className={className_dashboard} to="/recruiter/dashboard" >Dashboard</Link>
                                 <button className={className_signup} onClick={() => { localStorage.removeItem("recruiter_token"); window.location.reload(); }}>Logout</button>
                             </>
                         )
