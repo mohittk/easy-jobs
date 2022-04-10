@@ -55,13 +55,10 @@ export default function DashboardApplicant() {
                             <h1> Email Address : lol@gmail.com </h1>
                         </div>
 
-                        <div className="profile flex flex-row ml-[35%] mr-[35%] ">
+                        {/* <div className="profile flex flex-row ml-[35%] mr-[35%] ">
 
                             <button className="p-4 px-6 m-10 text-2xl font-semibold bg-indigo-600 text-white rounded" onClick={() => { localStorage.removeItem("applicant_token"); }}>Logout</button>
-
-
-
-                        </div>
+                        </div> */}
 
                     </div> :
                      <div className="apply-job-container text-left  dark:bg-[#2e2e2e] relative w-[38%] shadow-xl p-10 text-2xl md:rounded-md mx-auto min-w-fitrounded-xl mt-10  bg-[#ffffff]">
