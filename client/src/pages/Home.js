@@ -95,7 +95,7 @@ export default function Home() {
             </p>
             <div className="mt-10 ml-[3.3rem]">
               <Link
-                to="/jobs"
+                to="/postjob"
                 className="submit p-3 border-2 shadow-2xl text-xl hover:bg-indigo-500 font-medium ml-6 mb-5 bg-indigo-600 text-white outline-none rounded-xl "
               >
                 Recruite Now
