@@ -44,7 +44,7 @@ export default function DashboardApplicant() {
           <div className="profile bg-white shadow-2xl rounded-xl  p-16 ml-10 mr-10 mt-20">
             <div className="profile-details text-left text-2xl w-[30%] rounded border-indigo-600 font-semibold border-2">
               <h1 className="m-2 p-2"> Name : Elon musk | Applicant </h1>
-              <h1 className="m-2 p-2"> Email Address : lmao@gmail.com </h1>
+              <h1 className="m-2 p-2"> Email Address : hellogoogle@gmail.com </h1>
             </div>
 
             <div className="response-section">
