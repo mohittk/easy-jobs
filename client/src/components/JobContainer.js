@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
+// jobpost_recruiter_id
 
+// jobpost_type (part-time/full-time /internship) - done
+// jobpost_mode (work form home / in-office) - done
+// jobpost_location - done
+// jobpost_company_name - done
+// jobpost_duration -done
+// jobpost_role (ex: backend dev , business developer) -done
+// jobpost_pay (salary kitna loge) - done
+// jobpost_job_description - 
+// jobpost_experience (entry level , mid-senior level , etc )
 
 export default function JobContainer(props) {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +34,7 @@ export default function JobContainer(props) {
                                 </button>
                             </div>
                             <div className='text-xl mb-2'>({props.role})</div>
-                            
+
                             <div className='flex items-center justify-start mb-2'>
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -53,7 +63,7 @@ export default function JobContainer(props) {
                                 <div>Salary : {"8 LPA"}</div>
                             </div>
 
-                            <div className='mb-2'>Recruiter : {"Abc"}</div>
+                            {/* <div className='mb-2'>Recruiter : {"Abc"}</div> */}
 
                             <button
                                 className="check m-3 bg-indigo-600 rounded-xl text-white font-medium p-3"

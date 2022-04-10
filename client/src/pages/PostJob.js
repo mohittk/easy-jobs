@@ -25,29 +25,19 @@ export default function PostJob() {
       }
       auth_recruiter(obj).then(data=>{
         if(data.tag){
-          isLoggedIn(true);
+          setIsLoggedIn(true);
         }
         else{
-          isLoggedIn(false);
+          setIsLoggedIn(false);
         }
       })
     }
   })
 
-  // jobpost_recruiter_id
-  // jobpost_type (part-time/full-time /internship) - done
-  // jobpost_mode (work form home / in-office) - done
-  // jobpost_location - done
-  // jobpost_company_name - done
-  // jobpost_duration -done
-  // jobpost_role (ex: backend dev , business developer) -done
-  // jobpost_pay (salary kitna loge) - done
-  // jobpost_job_description - 
-  // jobpost_experience (entry level , mid-senior level , etc )
 
   const handleChange = async (e) => {
     e.preventDefault();
-    let recruiter_id = JSON.parse(atob(localStorage.getItem("applicant_token").split(".")[1])).id;
+    let recruiter_id = JSON.parse(atob(localStorage.getItem("recruiter_token").split(".")[1])).id;
     let obj = {
       jobpost_recruiter_id: recruiter_id,
       jobpost_type: jobType,
