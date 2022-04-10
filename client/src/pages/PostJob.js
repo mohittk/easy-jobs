@@ -7,7 +7,7 @@ import { auth_recruiter, create_jobpost } from "../controllers/recruiter";
 
 export default function PostJob() {
 
-  let [isLoggedIn,setIsLoggedIn]=useState(false);
+  let [isLoggedIn, setIsLoggedIn] = useState(false);
   const [role, setRole] = useState("");
   const [company, setCompany] = useState("");
   const [jobMode, setJobMode] = useState("");
@@ -18,16 +18,16 @@ export default function PostJob() {
   const [description, setDescription] = useState("");
   const [experience, setExperience] = useState("");
 
-  useEffect(()=>{
-    if(localStorage.getItem("recruiter_token")){
-      let obj={
-        token:localStorage.getItem("recruiter_token")
+  useEffect(() => {
+    if (localStorage.getItem("recruiter_token")) {
+      let obj = {
+        token: localStorage.getItem("recruiter_token")
       }
-      auth_recruiter(obj).then(data=>{
-        if(data.tag){
+      auth_recruiter(obj).then(data => {
+        if (data.tag) {
           setIsLoggedIn(true);
         }
-        else{
+        else {
           setIsLoggedIn(false);
         }
       })
@@ -60,18 +60,18 @@ export default function PostJob() {
 
 
   return (<>
-      <div className="upperbar bg-indigo-600">
-        <div className="nav float-right p-[3rem] text-2xl font-encode text-white">
-          <Navbar active="post_a_job" />
-        </div>
-        <Link to="/">
-          <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
-            {" "}
-            Easy Jobs
-          </h1>
-        </Link>
+    <div className="upperbar bg-indigo-600">
+      <div className="nav float-right p-[3rem] text-2xl font-encode text-white">
+        <Navbar active="post_a_job" />
       </div>
-   {isLoggedIn? <>
+      <Link to="/">
+        <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
+          {" "}
+          Easy Jobs
+        </h1>
+      </Link>
+    </div>
+    {isLoggedIn ? <>
 
       <div className="post-job-container text-left  dark:bg-[#2e2e2e] relative w-1/4 shadow-xl p-5 md:rounded-md mx-auto min-w-fitrounded-xl mt-10  bg-[#ffffff]">
         <div className="title ">
@@ -188,11 +188,11 @@ export default function PostJob() {
         </button>
       </div>
     </>
-    :
-    <div className="post-job-container text-left  dark:bg-[#2e2e2e] relative w-1/4 shadow-xl p-5 md:rounded-md mx-auto min-w-fitrounded-xl mt-10  bg-[#ffffff]">
-    "You are not logged in , <Link className="font-medium text-indigo-700 underline underline-offset-1" to="/login">Login</Link> to continue"
-    </div>
+      :
+      <div className="post-job-container text-left  dark:bg-[#2e2e2e] relative w-1/4 shadow-xl p-5 md:rounded-md mx-auto min-w-fitrounded-xl mt-10  bg-[#ffffff]">
+        "You are not logged in , <Link className="font-medium text-indigo-700 underline underline-offset-1" to="/login">Login</Link> as Recruiter to continue"
+      </div>
     }
-    </>
+  </>
   );
 }
