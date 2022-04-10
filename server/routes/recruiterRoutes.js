@@ -99,7 +99,7 @@ router.get("/alljobposts", async (req, res) => {
         let obj = jobsposted;
         return res.json({ "tag": true, "message": obj });
     }
-    return res.json({ "tag": false , message:"No job posts"});
+    return res.json({ "tag": false, message: "No job posts" });
 })
 
 router.post("/jobpost", async (req, res) => {
@@ -192,5 +192,20 @@ router.delete("/jobpost", async (req, res) => {
     });
 })
 
+router.post("/recruiterdets", async (req, res) => {
+    const id = req.body.id;
+    let recruiter = {};
+    recruiter = await Recruiter.findOne({ _id: id });
+    if (recruiter) {
+        return res.json({
+            "message": recruiter,
+            "tag": true
+        })
+    }
+    return res.json({
+        "message": recruiter,
+        "tag": false
+    })
+})
 
 module.exports = router;
