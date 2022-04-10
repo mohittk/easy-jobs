@@ -77,7 +77,7 @@ router.post("/login", async (req, res) => {
 
 })
 
-router.post("/jobpost", async (req, res) => {
+router.post("/getjobsposted", async (req, res) => {
 
     const objId = req.body._id;
 
@@ -134,7 +134,7 @@ router.post("/jobpost", async (req, res) => {
             return res.json({ "message": "try again", "tag": false })
         }
         //console.log(document);
-        return res.json({ "message": "Jop posted successfully", tag: true })
+        return res.json({ "message": "Job posted successfully", tag: true })
     })
 })
 

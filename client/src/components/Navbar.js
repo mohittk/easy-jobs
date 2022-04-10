@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Profile from '../pages/Profile'
 
 export default function Navbar({ active }) {
@@ -30,8 +30,15 @@ export default function Navbar({ active }) {
                 {
                     (localStorage.getItem("applicant_token") || localStorage.getItem("recruiter_token")) ?
                         (localStorage.getItem("applicant_token") ?
-
-                            )
+                            <>
+                                <Link className={className_signup} to="/applicant/dashboard" >Dashboard</Link>
+                                <button className={className_signup} onClick={() => { localStorage.removeItem("applicant_token"); window.location.reload(); }}>Logout</button>
+                            </>
+                            : <>
+                                <Link className={className_signup} to="/recruiter/dashboard" >Dashboard</Link>
+                                <button className={className_signup} onClick={() => { localStorage.removeItem("recruiter_token"); window.location.reload(); }}>Logout</button>
+                            </>
+                        )
                         :
                         <Link className={className_signup} to="/signup">Signup</Link>
 
