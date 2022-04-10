@@ -22,9 +22,11 @@ export default function Router() {
           <Route exact path="/postjob" element={<PostJob />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/applicant/dashboard" element={(localStorage.getItem("applicant_token") ? <Dashboard /> : <Home />)} />
-          <Route exact path="/recruiter/dashboard" element={(localStorage.getItem("recruiter_token") ? <Dashboard /> : <Home />)} />
 
+          <Route exact path="/applicant/dashboard" element={<Dashboard />} />
+          <Route exact path="/recruiter/dashboard" element={<Dashboard />} />
+          <Route exact path="/profile" element={<Profile />} />
+    
         </Routes>
       </BrowserRouter>
     </>

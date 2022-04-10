@@ -2,10 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 
-export default function Profile({ active }) {
 
-    return (
-        <>
 
             <div className="upperbar bg-indigo-600">
                 <div className="nav float-right p-[3rem] text-2xl font-encode text-white">
