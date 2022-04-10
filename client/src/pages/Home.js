@@ -44,10 +44,9 @@ export default function Home() {
           </h1>
           <p className="applicant text-[1.5rem] ml-20 mr-[30%] text-justify font-medium text-white">
             {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            volutpat tristique semper. Cras viverra arcu eget leo hendrerit
-            luctus. Maecenas ac ligula et augue placerat finibus et non ex.
-            Praesent lobortis mi nulla, ut tincidunt est rutrum ac. Sed sed.
+            Find jobs easily with Easy-Jobs.
+            Filter jobs based on the job type and mode.
+            We aspire to provide you the best possible jobs with optimum work and payscale.
           </p>
           </div>
           <div className="appimg">
@@ -68,10 +67,8 @@ export default function Home() {
           </h1>
           <p className="recru text-[1.5rem] ml-20 mr-[15%] text-justify font-medium text-indigo-600 ">
             {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            volutpat tristique semper. Cras viverra arcu eget leo hendrerit
-            luctus. Maecenas ac ligula et augue placerat finibus et non ex.
-            Praesent lobortis mi nulla, ut tincidunt est rutrum ac. Sed sed.
+            Having a hard time finding people who can fix that bug, manage that team or quench your busness requirements in whatever needed , here are three simple stpes which can help you.
+            Signup as Recruiter on Easy-Jobs , Post a Job and boom with in sometime your dashboard will be populated with candidate applications.
           </p>
           </div>
         </div>

@@ -9,7 +9,7 @@ import { register_recruiter } from "../controllers/recruiter";
 
 export default function Signup() {
 
-  document.title="Signup | Easy-Jobs";
+  document.title = "Signup | Easy-Jobs";
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
