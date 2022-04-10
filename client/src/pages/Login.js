@@ -42,14 +42,14 @@ export default function Login() {
     setEmail('');
     setPassword('');
   }
-  
 
-  
+
+
 
 
 
   return (
-  <>
+    <>
       <div className="signup-page">
 
         <div className="upperbar bg-indigo-600">
@@ -57,11 +57,11 @@ export default function Login() {
             <Navbar active="post_a_job" />
           </div>
           <Link to="/">
-        <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
-          {" "}
-          Easy Jobs
-        </h1>
-        </Link>
+            <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
+              {" "}
+              Easy Jobs
+            </h1>
+          </Link>
         </div>
 
         <div>
@@ -71,7 +71,7 @@ export default function Login() {
           <br />
           <span className="text-xl">Welcome Back !</span>
 
-          
+
           <input
             type="text"
             value={email}
