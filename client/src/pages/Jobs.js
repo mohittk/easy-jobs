@@ -83,7 +83,7 @@ export default function Jobs() {
 
       <div className="show-jobs-container bg-white shadow-2xl rounded-xl  p-16 ml-10 mr-10 mt-10">
         <h2 className="text-3xl font-semibold  m-5 text-indigo-600">
-          {"3"} Results Found
+           Results Found
         </h2>
         {
           jobs ? jobs.map(job =>
