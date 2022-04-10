@@ -36,7 +36,7 @@ export const login_recruiter = async (obj) => {
     return ans;
 }
 
-export const apply_jobpost = async (obj) => {
+export const create_jobpost = async (obj) => {
     const res = await fetch(`${base}/api/recruiter/jobpost`, {
         method: "POST",
         body: JSON.stringify(obj),
