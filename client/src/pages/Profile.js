@@ -47,7 +47,7 @@ export default function Profile({active}){
                   
                   </div>
               
-              <div className="profile flex flex-row ml-[35%] mr-[35%] ">
+              {/* <div className="profile flex flex-row ml-[35%] mr-[35%] ">
                 <button type="dashboard" className="p-5 m-10 text-2xl font-semibold bg-indigo-600 text-white rounded">Dashboard</button>
                 {
                     (localStorage.getItem("applicant_token") || localStorage.getItem("recruiter_token")) ?
@@ -69,7 +69,7 @@ export default function Profile({active}){
 
 
                 }
-                </div>
+                </div> */}
        
         </div>
         </div>
