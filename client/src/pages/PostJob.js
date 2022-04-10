@@ -19,6 +19,7 @@ export default function PostJob() {
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const [experience, setExperience] = useState("");
+  const [recruiter_id, setRecruiter_id] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem("recruiter_token")) {
@@ -28,6 +29,7 @@ export default function PostJob() {
       auth_recruiter(obj).then(data => {
         if (data.tag) {
           setIsLoggedIn(true);
+          setRecruiter_id(JSON.parse(atob(localStorage.getItem("recruiter_token").split(".")[1])).id);
         }
         else {
           setIsLoggedIn(false);
@@ -39,7 +41,7 @@ export default function PostJob() {
 
   const handleChange = async (e) => {
     e.preventDefault();
-    let recruiter_id = JSON.parse(atob(localStorage.getItem("recruiter_token").split(".")[1])).id;
+    // console.log(recruiter_id);
     let obj = {
       jobpost_recruiter_id: recruiter_id,
       jobpost_type: jobType,
@@ -54,6 +56,7 @@ export default function PostJob() {
     }
 
     create_jobpost(obj).then(data => {
+      console.log(data);
       alert(data.message);
       window.location.reload();
     })
