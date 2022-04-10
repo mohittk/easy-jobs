@@ -15,17 +15,23 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [fullname, setFullname] = useState('');
   const [password, setPassword] = useState('');
+  const [description, setDescription] = useState('');
+  const [experience, setExperience] = useState('');
+
+  let [userType, setUserType] = useState("applicant");
 
   const handleChange = async (e) => {
     e.preventDefault();
 
     // userType
-    let userType = document.getElementById("userType").value;
+
     if (userType === "applicant") {
       let obj = {
         applicant_email: email,
         applicant_password: password,
-        applicant_name: fullname
+        applicant_name: fullname,
+        applicant_description: description,
+        applicant_experience: experience
       }
       register_applicant(obj).then(data => alert(data.message));
     }
@@ -64,6 +70,18 @@ export default function Signup() {
             <br />
             <span className="text-xl">Tell us about yourself !</span>
           </h1>
+
+          <div className="jobtype mt-5 mb-5">
+            <label className="jobtype ml-10 text-xl font-medium ">
+              User Type{" "}
+            </label>
+            <br />
+            <select onChange={(e) => setUserType(e.target.value)} className="job-type shadow-2xl p-3 w-[85%] text-xl ml-10 border-2 bg-white outline-none rounded-xl">
+              <option value="applicant">Applicant</option>
+              <option value="recruiter">Recruiter</option>
+            </select>
+          </div>
+
           <label className="text-xl ml-10 font-medium "> Full Name</label>
           <br />
           <input
@@ -72,18 +90,6 @@ export default function Signup() {
             onChange={((e) => { setFullname(e.target.value) })}
             className="role shadow-2xl p-3 w-[85%] text-xl ml-10 bg-white  outline-none border-2 rounded-xl"
           />
-
-
-          <div className="jobtype mt-5">
-            <label className="jobtype ml-10 text-xl font-medium ">
-              User Type{" "}
-            </label>
-            <br />
-            <select id="userType" className="job-type shadow-2xl p-3 w-[85%] text-xl ml-10 border-2 bg-white outline-none rounded-xl">
-              <option value="applicant">Applicant</option>
-              <option value="recruiter">Recruiter</option>
-            </select>
-          </div>
 
           <div className="company mt-5">
             <label className="text-xl ml-10 font-medium">
@@ -108,6 +114,30 @@ export default function Signup() {
               className="location p-3 border-2 shadow-2xl w-[85%] text-xl ml-10 mb-10 bg-white outline-none rounded-xl"
             />
           </div>
+
+          {(userType === 'applicant') && <><div className="location mt-5">
+            <label className="text-xl ml-10 font-medium"> Experience</label>
+            <br />
+            <input
+              type="text"
+              value={experience}
+              onChange={((e) => { setExperience(e.target.value) })}
+              className="location p-3 border-2 shadow-2xl w-[85%] text-xl ml-10 mb-10 bg-white outline-none rounded-xl"
+            />
+          </div>
+
+            <div className="location mt-5">
+              <label className="text-xl ml-10 font-medium"> Description</label>
+              <br />
+              <textarea
+                type="text"
+                value={description}
+                onChange={((e) => { setDescription(e.target.value) })}
+                className="location p-3 border-2 shadow-2xl w-[85%] text-xl ml-10 mb-10 bg-white outline-none rounded-xl"
+                style={{height:"140px"}}
+              ></textarea>
+            </div>
+          </>}
 
           <button
             className="submit p-3 border-2 shadow-2xl w-[85%] text-xl hover:bg-[#c0c0c0] ml-10 mb-5 bg-white outline-none rounded-xl "

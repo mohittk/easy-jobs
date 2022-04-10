@@ -5,6 +5,8 @@ const Applicant = new Schema({
     applicant_email:String,
     applicant_password:String,
     applicant_name:String,
+    applicant_experience:String,
+    applicant_description:String
 });
 
 

@@ -26,11 +26,28 @@ router.post("/auth", async (req, res) => {
     }
 })
 
+router.post("/applicantdets", async (req, res) => {
+    const id = req.body.id;
+    let applicant = {};
+    applicant = await Applicant.findOne({ _id: id });
+    if (applicant) {
+        return res.json({
+            "message": applicant,
+            "tag": true
+        })
+    }
+    return res.json({
+        "message": applicant,
+        "tag": false
+    })
+})
+
 router.post("/signup", async (req, res) => {
 
     let { applicant_email,
         applicant_password,
-        applicant_name } = req.body;
+        applicant_name, applicant_experience,
+        applicant_description } = req.body;
 
     const result = await Applicant.findOne({ applicant_email });
 
@@ -43,7 +60,9 @@ router.post("/signup", async (req, res) => {
         const applicant = new Applicant({
             applicant_email,
             applicant_password,
-            applicant_name
+            applicant_name,
+            applicant_experience,
+            applicant_description
         })
         applicant.save(function (error, document) {
             if (error) {
