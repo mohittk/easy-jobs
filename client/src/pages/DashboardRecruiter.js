@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { auth_recruiter } from "../controllers/recruiter";
 import { get_all_jobposts } from "../controllers/recruiter";
+import JobContainer from "../components/JobContainer";
 
 export default function DashboardRecruiter() {
+  document.title = "Recruiter-Dashboard | Easy-Jobs";
+
   let [isRecruiterLoggedIn, setIsRecruiterLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -24,7 +27,7 @@ export default function DashboardRecruiter() {
         }
       });
     }
-  }, []);
+  });
 
   return (
     <>
@@ -51,22 +54,26 @@ export default function DashboardRecruiter() {
                 Jobs Posted By You
               </div>
 
-              <div className=" rounded flex flex-row">
-                <div className="card p-5 bg-indigo-600">
-                  {/* <JobContainer
-                    id={job._id}
-                    type={job.jobpost_type}
-                    mode={job.jobpost_mode}
-                    location={job.jobpost_location}
-                    company_name={job.jobpost_company_name}
-                    duration={job.jobpost_duration}
-                    role={job.jobpost_role}
-                    pay={job.jobpost_pay}
-                    job_description={job.jobpost_job_description}
-                    experience={job.jobpost_experience}
-                  /> */}
-                  )
+              <div className="rounded flex flex-row">
+                <div className="card p-10 w-full bg-white">
+                  <div className="job-container flex flex-row m-10 shadow-2xl">
+                    <div className="role w-[50%] p-3 text-2xl font-medium ">
+                      backend dev
+                      <div className="company text-lg p-1 bg-indigo-600 text-white rounded w-[35%] text-center">
+                        abc
+                      </div>
+                    </div>
+                    <div className="job-type m-3 w-[50%] text-xl font-medium p-3">
+                      part-time - remote - nowhere
+                    </div>
+
+                    <button className="check m-3 w-[50%] bg-indigo-600 rounded-xl text-white font-medium p-3">
+                      Delete
+                    </button>
+                  </div>
                 </div>
+
+                
               </div>
             </div>
             {/* 

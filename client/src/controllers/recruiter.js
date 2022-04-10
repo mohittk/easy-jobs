@@ -106,3 +106,16 @@ export const get_jobpost_applications = async (obj) => {
     const ans = await res.json();
     return ans;
 }
+
+
+export const get_recruiter_details_by_id=async(obj)=>{
+    const res = await fetch(`${base}/api/recruiter/recruiterdets`, {
+        method: "POST",
+        body: JSON.stringify(obj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const ans = await res.json();
+    return ans;
+}

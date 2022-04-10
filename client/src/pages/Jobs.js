@@ -13,8 +13,8 @@ export default function Jobs() {
   let [isLoggedIn, setIsLoggedIn] = useState(false);
   let [jobs, setJobs] = useState([]);
   let [filteredJobs, setFilteredJobs] = useState([]);
-  let[filter_type,setFilter_type]=useState('part-time');
-  let[filter_mode,setFilter_mode]=useState('remote');
+  let [filter_type, setFilter_type] = useState('');
+  let [filter_mode, setFilter_mode] = useState('');
 
   useEffect(() => {
     if (localStorage.getItem("applicant_token")) {
@@ -27,6 +27,7 @@ export default function Jobs() {
           get_all_jobposts().then(data => {
             console.log(data);
             setJobs(data.message);
+            setFilteredJobs(data.message);
           })
         }
         else {
@@ -38,7 +39,7 @@ export default function Jobs() {
   }, []);
 
   const jobSearch = () => {
-    let obj=jobs.filter(job=>(job.jobpost_type===filter_type && job.jobpost_mode===filter_mode));
+    let obj = jobs.filter(job => (job.jobpost_type === filter_type && job.jobpost_mode === filter_mode));
     setFilteredJobs(obj);
   }
 
@@ -61,13 +62,15 @@ export default function Jobs() {
         </h2>
 
         <div className="flex flex-row">
-          <select value={filter_type} onChange={(e)=>setFilter_type(e.target.value)} className="p-3 w-[50%] text-xl m-5 bg-[#e0e0e0] outline-none rounded-xl ">
+          <select value={filter_type} onChange={(e) => setFilter_type(e.target.value)} className="p-3 w-[50%] text-xl m-5 bg-[#e0e0e0] outline-none rounded-xl ">
+            <option value="part-time">Select Type</option>
             <option value="part-time">Part-Time</option>
             <option value="full-time">Full-Time</option>
             <option value="internship">Internship</option>
           </select>
 
-          <select value={filter_mode} onChange={(e)=>setFilter_mode(e.target.value)} className="p-3 w-[50%] text-xl m-5 bg-[#e0e0e0] outline-none rounded-xl ">
+          <select value={filter_mode} onChange={(e) => setFilter_mode(e.target.value)} className="p-3 w-[50%] text-xl m-5 bg-[#e0e0e0] outline-none rounded-xl ">
+            <option value="">Select Mode</option>
             <option value="remote">Remote</option>
             <option value="in-office">In-office</option>
           </select>
