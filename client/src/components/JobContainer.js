@@ -58,7 +58,7 @@ export default function JobContainer(props) {
                             </div>
                             <hr className='divide-y divide-solid w-[100%]' />
                             <div className='text-md mb-2'>
-                                <div className="text-lg mb-1">Job desctiption</div>
+                                <div className="text-lg mb-1">Job description</div>
                                 {props.job_description}
                                 <br />
 

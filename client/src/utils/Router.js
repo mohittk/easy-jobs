@@ -7,6 +7,8 @@ import Jobs from '../pages/Jobs';
 import PostJob from '../pages/PostJob';
 import Signup from '../pages/Signup';
 import Login from '../pages/Login';
+import Dashboard from '../pages/Dashboard';
+import Profile from '../pages/Profile';
 
 
 
@@ -20,6 +22,8 @@ export default function Router() {
           <Route exact path="/postjob" element={<PostJob />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/profile" element={<Profile />} />
       
         </Routes>
       </BrowserRouter>
