@@ -7,6 +7,8 @@ import { auth_recruiter, create_jobpost } from "../controllers/recruiter";
 
 export default function PostJob() {
 
+  document.title="Post a Job | Easy-Jobs";
+
   let [isLoggedIn, setIsLoggedIn] = useState(false);
   const [role, setRole] = useState("");
   const [company, setCompany] = useState("");

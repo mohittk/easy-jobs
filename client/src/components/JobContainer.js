@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {apply_application} from "../controllers/applicant"
+import { apply_application } from "../controllers/applicant"
 // jobpost_recruiter_id
 
 // jobpost_type (part-time/full-time /internship) - done

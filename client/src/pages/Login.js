@@ -8,6 +8,8 @@ import { login_recruiter } from "../controllers/recruiter";
 
 export default function Login() {
 
+  document.title="Login | Easy-Jobs";
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 

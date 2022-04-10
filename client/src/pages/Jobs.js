@@ -8,6 +8,8 @@ import { auth_applicant } from "../controllers/applicant";
 
 export default function Jobs() {
 
+  document.title="Jobs | Easy-Jobs";
+
   let [isLoggedIn, setIsLoggedIn] = useState(false);
   let [jobs, setJobs] = useState([]);
 
