@@ -7,6 +7,8 @@ import { auth_applicant } from '../controllers/applicant';
 
 export default function DashboardApplicant() {
 
+    document.title = "Applicant-Dashboard | Easy-Jobs";
+
     let [isApplicantLoggedIn, setIsApplicantLoggedIn] = useState(false);
 
     useEffect(() => {

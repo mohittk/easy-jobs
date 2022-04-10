@@ -7,6 +7,8 @@ import { auth_recruiter } from '../controllers/recruiter';
 
 export default function DashboardRecruiter() {
 
+    document.title = "Recruiter-Dashboard | Easy-Jobs";
+
     let [isRecruiterLoggedIn, setIsRecruiterLoggedIn] = useState(false);
 
     useEffect(() => {

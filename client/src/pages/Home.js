@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import main from "../assets/main.png";
 import applicant from '../assets/applicant.png'
 import recruiter from '../assets/recru.png'
-import { auth_applicant } from "../controllers/applicant";
 
 
 export default function Home() {
+  document.title="Easy-Jobs";
   return (
     <>
       <div className="home-page">
