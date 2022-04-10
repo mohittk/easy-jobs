@@ -50,8 +50,19 @@ export const create_jobpost = async (obj) => {
 
 export const get_jobposts = async (obj) => {
     const res = await fetch(`${base}/api/recruiter/jobpost`, {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify(obj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const ans = await res.json();
+    return ans;
+}
+
+export const get_all_jobposts = async () => {
+    const res = await fetch(`${base}/api/recruiter/alljobposts`, {
+        method: "GET",
         headers: {
             "Content-Type": "application/json"
         }
@@ -84,3 +95,14 @@ export const delete_jobpost = async (obj) => {
     return ans;
 }
 
+export const get_jobpost_applications = async (obj) => {
+    const res = await fetch(`${base}/api/applicant/jobpost/applications`, {
+        method: "POST",
+        body: JSON.stringify(obj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const ans = await res.json();
+    return ans;
+}

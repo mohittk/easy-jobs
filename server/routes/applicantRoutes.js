@@ -78,7 +78,7 @@ router.post("/login", async (req, res) => {
 
 })
 
-router.get("/application", async (req, res) => {
+router.post("/application", async (req, res) => {
 
     const objId = req.body.application_applicant_id;
 
@@ -97,6 +97,27 @@ router.get("/application", async (req, res) => {
     }
     return res.json({ "tag": false });
 
+})
+
+router.post("/jobpost/applications", async (req, res) => {
+
+    let applications = await Application.find({ application_jobpost_id: req.body.application_jobpost_id });
+    let arr = [];
+    let len = applications.length;
+    for (let i = 0; i < len; i++) {
+        let temp = await Applicant.find({ _id: applications[i].application_applicant_id });
+        arr.push(temp);
+    }
+    if (arr.length > 0) {
+        return res.json({
+            "message": arr,
+            "tag": true
+        })
+    }
+    return res.json({
+        "message": "No applicant found",
+        "tag": false
+    })
 })
 
 router.post("/application", async (req, res) => {
