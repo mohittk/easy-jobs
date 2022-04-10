@@ -30,12 +30,7 @@ export default function Navbar({ active }) {
                 {
                     (localStorage.getItem("applicant_token") || localStorage.getItem("recruiter_token")) ?
                         (localStorage.getItem("applicant_token") ?
-                            
-                                <button className={className_signup} onClick={() => {navigate('/profile')}}>Profile</button>
-                             : 
-                                <button className={className_signup} onClick={() => {navigate('/profile')}}>Profile</button>
 
-                                
                             )
                         :
                         <Link className={className_signup} to="/signup">Signup</Link>
