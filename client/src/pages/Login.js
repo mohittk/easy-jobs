@@ -1,26 +1,24 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { Link } from 'react-router-dom'
-import { useState } from "react"
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import { login_applicant } from "../controllers/applicant";
 import { login_recruiter } from "../controllers/recruiter";
 
-
 export default function Login() {
+  document.title = "Login | Easy-Jobs";
 
-  document.title="Login | Easy-Jobs";
-
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const login_handleChange = async (e) => {
     e.preventDefault();
     let login_userType = document.getElementById("login_userType").value;
-    if (login_userType === 'applicant') {
+    if (login_userType === "applicant") {
       let obj = {
         applicant_email: email,
-        applicant_password: password
-      }
+        applicant_password: password,
+      };
       login_applicant(obj).then((data) => {
         if (data.tag === true) {
           localStorage.setItem("applicant_token", data.token);
@@ -28,22 +26,20 @@ export default function Login() {
         alert(data.message);
         window.location.reload();
       });
-    }
-    else if (login_userType === "recruiter") {
+    } else if (login_userType === "recruiter") {
       let obj = {
         recruiter_email: email,
-        recruiter_password: password
-      }
+        recruiter_password: password,
+      };
       login_recruiter(obj).then((data) => {
         if (data.tag === true) {
           localStorage.setItem("recruiter_token", data.token);
         }
         alert(data.message);
         window.location.reload();
-      })
+      });
     }
-
-  }
+  };
 
   return (
     <>
@@ -60,7 +56,6 @@ export default function Login() {
           </Link>
         </div>
 
-
         <div className="signup-formrelative w-1/4 shadow-xl p-5 md:rounded-md mx-auto min-w-fitrounded-xl mt-10 bg-[#ffffff]">
           <h1 className="ml-10 mb-5 text-[3rem] font-semibold text-indigo-600">
             {" "}
@@ -69,24 +64,27 @@ export default function Login() {
             <span className="text-xl">Welcome Back !</span>
           </h1>
 
-          <label className="text-xl ml-10 font-medium mt-5"> Email address</label>
+          <label className="text-xl ml-10 font-medium mt-5">
+            {" "}
+            Email address
+          </label>
           <br />
           <input
             type="text"
             value={email}
-            onChange={((e) => { setEmail(e.target.value) })}
-
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
             className="role shadow-2xl p-3 w-[85%] text-xl ml-10 bg-white  outline-none border-2 rounded-xl"
           />
 
           <div className="location mt-5">
-            <label className="text-xl ml-10 font-medium">  Password</label>
+            <label className="text-xl ml-10 font-medium"> Password</label>
             <br />
             <input
               type="password"
               value={password}
-              onChange={((e) => setPassword(e.target.value))}
-
+              onChange={(e) => setPassword(e.target.value)}
               className="location p-3 border-2 shadow-2xl w-[85%] text-xl  ml-10  bg-white outline-none rounded-xl"
             />
           </div>
@@ -95,7 +93,10 @@ export default function Login() {
               User Type
             </label>
             <br />
-            <select id="login_userType" className="job-type shadow-2xl p-3 w-[85%] text-xl ml-10 mb-5 border-2 bg-white outline-none rounded-xl">
+            <select
+              id="login_userType"
+              className="job-type shadow-2xl p-3 w-[85%] text-xl ml-10 mb-5 border-2 bg-white outline-none rounded-xl"
+            >
               <option value="applicant">Applicant</option>
               <option value="recruiter">Recruiter</option>
             </select>
@@ -111,6 +112,5 @@ export default function Login() {
         </div>
       </div>
     </>
-
   );
 }
