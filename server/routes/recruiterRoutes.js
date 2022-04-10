@@ -79,7 +79,7 @@ router.post("/login", async (req, res) => {
 
 router.post("/getjobsposted", async (req, res) => {
 
-    const objId = req.body._id;
+    const objId = req.body.id;
 
     let jobsposted = await JobPost.find({ jobpost_recruiter_id: objId });
     if (jobsposted.length > 0) {

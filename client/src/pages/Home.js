@@ -8,7 +8,7 @@ import '../styles/index.css'
 
 
 export default function Home() {
-  document.title="Easy-Jobs";
+  document.title = "Easy-Jobs";
   return (
     <>
       <div className="home-page no-scrollbar">
@@ -71,7 +71,7 @@ export default function Home() {
               >
                 Apply Now
               </Link>
-              </div>
+            </div>
           </div>
           <div className="appimg">
             <img className="float-right p-10 m-5 max-w-2xl" src={applicant} />
@@ -101,7 +101,7 @@ export default function Home() {
               >
                 Recruite Now
               </Link>
-              </div>
+            </div>
           </div>
         </div>
       </div>

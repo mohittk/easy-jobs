@@ -99,7 +99,7 @@ router.post("/login", async (req, res) => {
 
 router.post("/getapplication", async (req, res) => {
 
-    const objId = req.body.application_applicant_id;
+    const objId = req.body.id;
 
     let applications = await Application.find({ application_applicant_id: objId });
     if (applications.length > 0) {
@@ -108,8 +108,8 @@ router.post("/getapplication", async (req, res) => {
         let len = applications.length;
 
         for (let i = 0; i < len; i++) {
-            let temp = await JobPost.findOne({ _id: application_jobpost_id });
-            obj.push_back(temp);
+            let temp = await JobPost.findOne({ _id: applications[i].application_jobpost_id });
+            obj.push(temp);
         }
 
         return res.json({ "tag": true, "message": obj });
@@ -158,12 +158,13 @@ router.post("/application", async (req, res) => {
 
 })
 
-router.delete("/application", async (req, res) => {
-    const { _id } = req.body;
-
-    Application.deleteOne({ _id }, function (err) {
+router.delete("/application", async (req, res) => {    
+    const {jobpost_id,
+        applicant_id}=req.body;
+    Application.deleteOne({ application_applicant_id:applicant_id,
+        application_jobpost_id:jobpost_id}, function (err) {
         if (err) {
-            //console.log(err);
+            
             return res.json({ "message": "Some error occured try again", "tag": false })
         }
         else {
