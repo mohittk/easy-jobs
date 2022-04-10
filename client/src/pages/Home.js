@@ -63,6 +63,14 @@ export default function Home() {
               Filter jobs based on the job type and mode.
               We aspire to provide you the best possible jobs with optimum work and payscale.
             </p>
+            <div className="mt-10 ml-[3.3rem]">
+              <Link
+                to="/jobs"
+                className="submit p-3 border-2 shadow-2xl text-xl text-indigo-600 hover:bg-[#c0c0c0] hover:text-indigo-800 font-medium ml-6 mb-5 bg-white outline-none rounded-xl "
+              >
+                Apply Now
+              </Link>
+              </div>
           </div>
           <div className="appimg">
             <img className="float-right p-10 m-5 max-w-2xl" src={applicant} />
@@ -85,6 +93,14 @@ export default function Home() {
               Having a hard time finding people who can fix that bug, manage that team or quench your busness requirements in whatever needed , here are three simple stpes which can help you.
               Signup as Recruiter on Easy-Jobs , Post a Job and boom with in sometime your dashboard will be populated with candidate applications.
             </p>
+            <div className="mt-10 ml-[3.3rem]">
+              <Link
+                to="/jobs"
+                className="submit p-3 border-2 shadow-2xl text-xl hover:bg-indigo-500 font-medium ml-6 mb-5 bg-indigo-600 text-white outline-none rounded-xl "
+              >
+                Recruite Now
+              </Link>
+              </div>
           </div>
         </div>
       </div>
