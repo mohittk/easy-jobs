@@ -86,10 +86,16 @@ export default function Jobs() {
         {
           jobs ? jobs.map(job =>
             <JobContainer
-              role={job.jobpost_role}
-              company={job.jobpost_company_name}
+              id={job._id}
+              type={job.jobpost_type}
+              mode={job.jobpost_mode}
               location={job.jobpost_location}
-              jobtype={job.jobpost_type}
+              company_name={job.jobpost_company_name}
+              duration={job.jobpost_duration}
+              role={job.jobpost_role}
+              pay={job.jobpost_pay}
+              job_description={job.jobpost_job_description}
+              experience={job.jobpost_experience}
             />)
 
             : "No jobs openings"

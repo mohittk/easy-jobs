@@ -37,7 +37,7 @@ export const login_applicant = async (obj) => {
 }
 
 export const get_applications = async (obj) => {
-    const res = await fetch(`${base}/api/applicant/application`, {
+    const res = await fetch(`${base}/api/applicant/getapplication`, {
         method: "POST",
         body: JSON.stringify(obj),
         headers: {
