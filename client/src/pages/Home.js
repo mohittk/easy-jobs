@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import main from "../assets/main.png";
 import applicant from '../assets/applicant.png'
 import recruiter from '../assets/recru.png'
+import '../styles/index.css'
 
 
 export default function Home() {
   document.title="Easy-Jobs";
   return (
     <>
-      <div className="home-page">
+      <div className="home-page no-scrollbar">
         <div className="upperbar bg-indigo-600">
           <div className="nav float-right p-[3rem] text-2xl font-encode text-white">
             <Navbar />

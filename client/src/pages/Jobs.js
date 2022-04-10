@@ -44,6 +44,7 @@ export default function Jobs() {
   }
 
   return (<>
+  <div className=" ">
     <div className="upperbar bg-indigo-600">
       <div className="nav float-right p-[3rem] text-2xl  font-encode text-white">
         <Navbar active="jobs" />
@@ -54,6 +55,7 @@ export default function Jobs() {
           Easy Jobs
         </h1>
       </Link>
+    </div>
     </div>
     {isLoggedIn ? <>
       <div className="find-jobs-container bg-white shadow-2xl rounded-xl  p-16 ml-10 mr-10 mt-10">
