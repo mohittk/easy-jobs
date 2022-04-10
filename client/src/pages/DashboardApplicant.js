@@ -73,6 +73,10 @@ export default function DashboardApplicant() {
                              <div className="job-type m-3 w-[50%] text-xl font-medium p-3">
                                part-time - remote - nowhere
                              </div>
+
+                             <button className="check m-3 w-[50%] bg-indigo-600 rounded-xl text-white font-medium p-3">
+                               Edit
+                             </button>
          
                              <button className="check m-3 w-[50%] bg-indigo-600 rounded-xl text-white font-medium p-3">
                                Delete
