@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
-import { Link } from 'react-router-dom';
-import main from '../assets/main.png'
+import { Link } from "react-router-dom";
+import main from "../assets/main.png";
+import applicant from '../assets/applicant.png'
+import recruiter from '../assets/recru.png'
 import { auth_applicant } from "../controllers/applicant";
 
 
@@ -21,13 +23,56 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="hero p-20 flex flex-row">
+        <div className="hero p-20 flex mb-48 flex-row">
           <div className="title p-5 ml-10 b">
-            <h1 className="text-indigo-600 text-6xl p-5 font-encode">Easily find a job with <br /><span className="text-9xl"> Easy Jobs..</span> </h1>
+            <h1 className="text-indigo-600 text-6xl p-5 font-encode">
+              Easily find a job with <br />
+              <span className="text-9xl"> Easy Jobs..</span>{" "}
+            </h1>
           </div>
 
-          <div className="image absolute right-0 " >
+          <div className="image absolute right-0 ">
             <img className="fadeupdown mr-20 rounded-2xl" src={main} />
+          </div>
+        </div>
+
+        <div className="home-other p-10 flex flex-row bg-indigo-600">
+          <div className="text">
+          <h1 className="applicant text-[3.5rem] text-white font-semibold p-16 m-5">
+            {" "}
+            Are you an Applicant?{" "}
+          </h1>
+          <p className="applicant text-[1.5rem] ml-20 mr-[30%] text-justify font-medium text-white">
+            {" "}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            volutpat tristique semper. Cras viverra arcu eget leo hendrerit
+            luctus. Maecenas ac ligula et augue placerat finibus et non ex.
+            Praesent lobortis mi nulla, ut tincidunt est rutrum ac. Sed sed.
+          </p>
+          </div>
+          <div className="appimg">
+          <img className="float-right p-10 m-5 max-w-2xl" src={applicant} />
+          </div>
+        </div>
+
+        <div className="home-other p-10 flex flex-row bg-white">
+          
+          <div className="appimg">
+          <img className="float-left p-10 mr-48 max-w-2xl" src={recruiter} />
+          </div>
+
+          <div className="text float-right">
+          <h1 className="recru text-[3.5rem] text-indigo-600 font-semibold p-16 m-5">
+            {" "}
+            Are you a Recruiter?{" "}
+          </h1>
+          <p className="recru text-[1.5rem] ml-20 mr-[15%] text-justify font-medium text-indigo-600 ">
+            {" "}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            volutpat tristique semper. Cras viverra arcu eget leo hendrerit
+            luctus. Maecenas ac ligula et augue placerat finibus et non ex.
+            Praesent lobortis mi nulla, ut tincidunt est rutrum ac. Sed sed.
+          </p>
           </div>
         </div>
       </div>
