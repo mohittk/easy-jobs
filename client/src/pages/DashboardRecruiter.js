@@ -72,8 +72,6 @@ export default function DashboardRecruiter() {
                     </button>
                   </div>
                 </div>
-
-                
               </div>
             </div>
             {/* 
