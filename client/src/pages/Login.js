@@ -11,7 +11,7 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleChange = async (e) => {
+  const login_handleChange = async (e) => {
     e.preventDefault();
     let login_userType = document.getElementById("login_userType").value;
     if (login_userType === 'applicant') {
@@ -24,7 +24,7 @@ export default function Login() {
           localStorage.setItem("applicant_token", data.token);
         }
         alert(data.message);
-      })
+      });
     }
     else if (login_userType === "recruiter") {
       let obj = {
@@ -92,10 +92,10 @@ export default function Login() {
           </div>
           <div className="jobtype mt-5">
             <label className="jobtype ml-10 text-xl font-medium ">
-              User Type{" "}
+              User Type
             </label>
             <br />
-            <select id="userType" className="job-type shadow-2xl p-3 w-[85%] text-xl ml-10 mb-5 border-2 bg-white outline-none rounded-xl">
+            <select id="login_userType" className="job-type shadow-2xl p-3 w-[85%] text-xl ml-10 mb-5 border-2 bg-white outline-none rounded-xl">
               <option value="applicant">Applicant</option>
               <option value="recruiter">Recruiter</option>
             </select>
@@ -104,8 +104,7 @@ export default function Login() {
           <button
             className="submit p-3 border-2 shadow-2xl w-[85%] text-xl hover:bg-[#c0c0c0] ml-10 mb-5 bg-white outline-none rounded-xl "
             type="submit"
-            onClick={handleChange}
-
+            onClick={login_handleChange}
           >
             Submit
           </button>
