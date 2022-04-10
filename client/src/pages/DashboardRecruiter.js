@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
-import { auth_recruiter } from '../controllers/recruiter';
+import { auth_recruiter, get_recruiter_details_by_id } from '../controllers/recruiter';
 
 
 
@@ -10,6 +10,8 @@ export default function DashboardRecruiter() {
     document.title = "Recruiter-Dashboard | Easy-Jobs";
 
     let [isRecruiterLoggedIn, setIsRecruiterLoggedIn] = useState(false);
+    let [name, setName] = useState("")
+    let [email, setEmail] = useState("")
 
     useEffect(() => {
         if (localStorage.getItem("recruiter_token")) {
@@ -19,10 +21,11 @@ export default function DashboardRecruiter() {
             auth_recruiter(obj).then(data => {
                 if (data.tag) {
                     setIsRecruiterLoggedIn(true);
-                    //   get_all_jobposts().then(data => {
-                    //     console.log(data);
-                    //     setJobs(data.message);
-                    //   })
+let obj={id:JSON.parse(atob(localStorage.getItem("recruiter_token").split(".")[1])).id}
+                    get_recruiter_details_by_id(obj).then(data => {
+                        setName(data.message.recruiter_name)
+                        setEmail(data.message.recruiter_email)
+                    })
                 }
                 else {
                     setIsRecruiterLoggedIn(false);
@@ -53,13 +56,13 @@ export default function DashboardRecruiter() {
                     <div className="profile bg-white shadow-2xl rounded-xl  p-16 ml-10 mr-10 mt-20">
 
                         <div className="profile-details text-left text-2xl ml-[38%] mr-[35%] font-semibold">
-                            <h1> Name : Elon musk | recruiter</h1>
-                            <h1> Email Address : lol@gmail.com </h1>
+                            <h1> Name : {name}</h1>
+                            <h1> Email Address : {email} </h1>
                         </div>
 
                         <div className="profile flex flex-row ml-[35%] mr-[35%] ">
 
-                            <button className="p-4 px-6 m-10 text-2xl font-semibold bg-indigo-600 text-white rounded" onClick={() => { localStorage.removeItem("recruiter_token"); }}>Logout</button>
+                            <button className="p-4 px-6 m-10 text-2xl font-semibold bg-indigo-600 text-white rounded" onClick={() => { localStorage.removeItem("recruiter_token"); window.location.reload() }}>Logout</button>
 
                         </div>
 
