@@ -24,7 +24,19 @@ export default function Navbar({ active }) {
                 <Link className="m-3" to="/" ></Link>
                 <Link className={className_jobs} to="/jobs">Jobs</Link>
                 <Link className={className_post_a_job} to="/postjob">Post a Job</Link>
-                <Link className={className_signup} to="/signup">Signup</Link>
+                {
+                    (localStorage.getItem("applicant_token") || localStorage.getItem("recruiter_token")) ?
+                        (localStorage.getItem("applicant_token") ?
+                            
+                                <button className={className_signup} onClick={() => {localStorage.removeItem("applicant_token"); window.location.reload();}}>Logout</button>
+                             : 
+                                <button className={className_signup} onClick={() => {localStorage.removeItem("recruiter_token");  window.location.reload();}}>Logout</button>
+                            )
+                        :
+                        <Link className={className_signup} to="/signup">Signup</Link>
+
+
+                }
             </div>
         </>
 
