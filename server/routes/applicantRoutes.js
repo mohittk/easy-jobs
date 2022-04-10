@@ -78,7 +78,7 @@ router.post("/login", async (req, res) => {
 
 })
 
-router.post("/application", async (req, res) => {
+router.post("/getapplication", async (req, res) => {
 
     const objId = req.body.application_applicant_id;
 

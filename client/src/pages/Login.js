@@ -24,6 +24,7 @@ export default function Login() {
           localStorage.setItem("applicant_token", data.token);
         }
         alert(data.message);
+        window.location.reload();
       });
     }
     else if (login_userType === "recruiter") {
@@ -36,12 +37,9 @@ export default function Login() {
           localStorage.setItem("recruiter_token", data.token);
         }
         alert(data.message);
+        window.location.reload();
       })
     }
-
-
-    setEmail('');
-    setPassword('');
 
   }
 

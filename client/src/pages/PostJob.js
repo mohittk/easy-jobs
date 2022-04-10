@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
 import { Link } from 'react-router-dom'
-import { create_jobpost } from "../controllers/recruiter";
+import { auth_recruiter, create_jobpost } from "../controllers/recruiter";
 
 
 export default function PostJob() {
+
+  let [isLoggedIn, setIsLoggedIn] = useState(false);
   const [role, setRole] = useState("");
   const [company, setCompany] = useState("");
   const [jobMode, setJobMode] = useState("");
@@ -16,20 +18,26 @@ export default function PostJob() {
   const [description, setDescription] = useState("");
   const [experience, setExperience] = useState("");
 
-  // jobpost_recruiter_id
-  // jobpost_type (part-time/full-time /internship) - done
-  // jobpost_mode (work form home / in-office) - done
-  // jobpost_location - done
-  // jobpost_company_name - done
-  // jobpost_duration -done
-  // jobpost_role (ex: backend dev , business developer) -done
-  // jobpost_pay (salary kitna loge) - done
-  // jobpost_job_description - 
-  // jobpost_experience (entry level , mid-senior level , etc )
+  useEffect(() => {
+    if (localStorage.getItem("recruiter_token")) {
+      let obj = {
+        token: localStorage.getItem("recruiter_token")
+      }
+      auth_recruiter(obj).then(data => {
+        if (data.tag) {
+          setIsLoggedIn(true);
+        }
+        else {
+          setIsLoggedIn(false);
+        }
+      })
+    }
+  })
+
 
   const handleChange = async (e) => {
     e.preventDefault();
-    let recruiter_id = JSON.parse(atob(localStorage.getItem("applicant_token").split(".")[1])).id;
+    let recruiter_id = JSON.parse(atob(localStorage.getItem("recruiter_token").split(".")[1])).id;
     let obj = {
       jobpost_recruiter_id: recruiter_id,
       jobpost_type: jobType,
@@ -51,19 +59,19 @@ export default function PostJob() {
   }
 
 
-  return (
-    <>
-      <div className="upperbar bg-indigo-600">
-        <div className="nav float-right p-[3rem] text-2xl font-encode text-white">
-          <Navbar active="post_a_job" />
-        </div>
-        <Link to="/">
-          <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
-            {" "}
-            Easy Jobs
-          </h1>
-        </Link>
+  return (<>
+    <div className="upperbar bg-indigo-600">
+      <div className="nav float-right p-[3rem] text-2xl font-encode text-white">
+        <Navbar active="post_a_job" />
       </div>
+      <Link to="/">
+        <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
+          {" "}
+          Easy Jobs
+        </h1>
+      </Link>
+    </div>
+    {isLoggedIn ? <>
 
       <div className="post-job-container text-left  dark:bg-[#2e2e2e] relative w-1/4 shadow-xl p-5 md:rounded-md mx-auto min-w-fitrounded-xl mt-10  bg-[#ffffff]">
         <div className="title ">
@@ -113,8 +121,8 @@ export default function PostJob() {
           </label>
           <br />
           <select value={jobMode} onChange={((e) => { setJobMode(e.target.value) })} className="job-type shadow-2xl p-3 text-xl border-2  ml-10 w-[85%] bg-white outline-none rounded-xl">
-            <option value="Work From Home">Work From Home</option>
-            <option value="In-office">In-office</option>
+            <option value="remote">Remote</option>
+            <option value="in-office">In-office</option>
           </select>
         </div>
 
@@ -180,5 +188,11 @@ export default function PostJob() {
         </button>
       </div>
     </>
+      :
+      <div className="post-job-container text-left  dark:bg-[#2e2e2e] relative w-1/4 shadow-xl p-5 md:rounded-md mx-auto min-w-fitrounded-xl mt-10  bg-[#ffffff]">
+        "You are not logged in , <Link className="font-medium text-indigo-700 underline underline-offset-1" to="/login">Login</Link> as Recruiter to continue"
+      </div>
+    }
+  </>
   );
 }
