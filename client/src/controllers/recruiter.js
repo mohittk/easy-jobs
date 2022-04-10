@@ -1,5 +1,17 @@
 const base = "http://localhost:5000";
 
+export const auth_recruiter = async (obj) => {
+    const res = await fetch(`${base}/api/recruiter/auth`, {
+        method: "POST",
+        body: JSON.stringify(obj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const ans = await res.json();
+    return ans;
+}
+
 export const register_recruiter = async (obj) => {
     const res = await fetch(`${base}/api/recruiter/signup`, {
         method: "POST",
@@ -24,7 +36,7 @@ export const login_recruiter = async (obj) => {
     return ans;
 }
 
-export const apply_jobpost = async (obj) => {
+export const create_jobpost = async (obj) => {
     const res = await fetch(`${base}/api/recruiter/jobpost`, {
         method: "POST",
         body: JSON.stringify(obj),
@@ -38,8 +50,19 @@ export const apply_jobpost = async (obj) => {
 
 export const get_jobposts = async (obj) => {
     const res = await fetch(`${base}/api/recruiter/jobpost`, {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify(obj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const ans = await res.json();
+    return ans;
+}
+
+export const get_all_jobposts = async () => {
+    const res = await fetch(`${base}/api/recruiter/alljobposts`, {
+        method: "GET",
         headers: {
             "Content-Type": "application/json"
         }
@@ -72,3 +95,14 @@ export const delete_jobpost = async (obj) => {
     return ans;
 }
 
+export const get_jobpost_applications = async (obj) => {
+    const res = await fetch(`${base}/api/applicant/jobpost/applications`, {
+        method: "POST",
+        body: JSON.stringify(obj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const ans = await res.json();
+    return ans;
+}

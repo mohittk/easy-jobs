@@ -1,5 +1,17 @@
 const base = "http://localhost:5000";
 
+export const auth_applicant = async (obj) => {
+    const res = await fetch(`${base}/api/applicant/auth`, {
+        method: "POST",
+        body: JSON.stringify(obj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const ans = await res.json();
+    return ans;
+}
+
 export const register_applicant = async (obj) => {
     const res = await fetch(`${base}/api/applicant/signup`, {
         method: "POST",
@@ -26,7 +38,7 @@ export const login_applicant = async (obj) => {
 
 export const get_applications = async (obj) => {
     const res = await fetch(`${base}/api/applicant/application`, {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify(obj),
         headers: {
             "Content-Type": "application/json"
@@ -35,6 +47,7 @@ export const get_applications = async (obj) => {
     const ans = await res.json();
     return ans;
 }
+
 export const apply_application = async (obj) => {
     const res = await fetch(`${base}/api/applicant/application`, {
         method: "POST",
