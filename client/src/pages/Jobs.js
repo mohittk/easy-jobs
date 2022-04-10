@@ -8,10 +8,13 @@ import { auth_applicant } from "../controllers/applicant";
 
 export default function Jobs() {
 
-  document.title="Jobs | Easy-Jobs";
+  document.title = "Jobs | Easy-Jobs";
 
   let [isLoggedIn, setIsLoggedIn] = useState(false);
   let [jobs, setJobs] = useState([]);
+  let [filteredJobs, setFilteredJobs] = useState([]);
+  let[filter_type,setFilter_type]=useState('part-time');
+  let[filter_mode,setFilter_mode]=useState('remote');
 
   useEffect(() => {
     if (localStorage.getItem("applicant_token")) {
@@ -35,7 +38,8 @@ export default function Jobs() {
   }, []);
 
   const jobSearch = () => {
-
+    let obj=jobs.filter(job=>(job.jobpost_type===filter_type && job.jobpost_mode===filter_mode));
+    setFilteredJobs(obj);
   }
 
   return (<>
@@ -57,18 +61,15 @@ export default function Jobs() {
         </h2>
 
         <div className="flex flex-row">
-          <select className="p-3 w-[50%] text-xl m-5 bg-[#e0e0e0] outline-none rounded-xl ">
+          <select value={filter_type} onChange={(e)=>setFilter_type(e.target.value)} className="p-3 w-[50%] text-xl m-5 bg-[#e0e0e0] outline-none rounded-xl ">
+            <option value="part-time">Part-Time</option>
             <option value="full-time">Full-Time</option>
-            <option selected value="part-time">
-              Part-Time
-            </option>
+            <option value="internship">Internship</option>
           </select>
 
-          <select className="p-3 w-[50%] text-xl m-5 bg-[#e0e0e0] outline-none rounded-xl ">
-            <option value="grapefruit">Remote</option>
-            <option selected value="coconut">
-              In-office
-            </option>
+          <select value={filter_mode} onChange={(e)=>setFilter_mode(e.target.value)} className="p-3 w-[50%] text-xl m-5 bg-[#e0e0e0] outline-none rounded-xl ">
+            <option value="remote">Remote</option>
+            <option value="in-office">In-office</option>
           </select>
 
           <button className="p-3 w-[50%] text-white text-xl m-5 rounded-xl bg-indigo-600" onClick={jobSearch}>
@@ -83,10 +84,10 @@ export default function Jobs() {
 
       <div className="show-jobs-container bg-white shadow-2xl rounded-xl  p-16 ml-10 mr-10 mt-10">
         <h2 className="text-3xl font-semibold  m-5 text-indigo-600">
-           Results Found
+          {filteredJobs.length} Results Found
         </h2>
         {
-          jobs ? jobs.map(job =>
+          filteredJobs ? filteredJobs.map(job =>
             <JobContainer
               id={job._id}
               type={job.jobpost_type}
@@ -100,7 +101,7 @@ export default function Jobs() {
               experience={job.jobpost_experience}
             />)
 
-            : "No jobs openings"
+            : <>No job openings</>
         }
 
 
